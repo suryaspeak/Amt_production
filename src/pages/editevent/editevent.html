@@ -1,0 +1,225 @@
+<!--
+  Generated template for the EditeventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Edit Event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-card>
+
+    <ion-list radio-group [(ngModel)]="Activity">
+     
+    
+        <ion-item>
+          <ion-label>Planed</ion-label>
+          <ion-radio slot="start" value="0" disabled></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Breakdown</ion-label>
+          <ion-radio slot="start" value="1" disabled></ion-radio>
+        </ion-item>
+
+        
+        
+     
+    
+    
+    </ion-list>
+    
+      <ion-item *ngIf="Prevention" >
+        <ion-label>Event Prevention<span style="color:red">*</span></ion-label>
+        <ion-select [(ngModel)]="Prevention">
+          <ion-option  *ngFor="let item of EventPrevention" value="{{item.Event_Prevention_ID}}" (ionSelect)="onEventChange(item.Event_Prevention_ID)">{{item.Description}}</ion-option>
+          
+        </ion-select>
+        
+      </ion-item>
+  
+ </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Site<span style="color:red">*</span></ion-label>
+      <ion-select [(ngModel)]="siteId" disabled>
+        <ion-option *ngFor="let item of siteData" value="{{item.SiteId}}" (ionSelect)="onSiteChange(item.SiteId)">{{item.Site}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item >
+      <ion-label>Equipment<span style="color:red">*</span></ion-label>
+    
+      <ion-input disabled  [(ngModel)]="EquipmentId"></ion-input>
+
+    </ion-item>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Description<span style="color:red">*</span></ion-label>
+      <ion-textarea name="description" [(ngModel)]="description"></ion-textarea>
+    </ion-item>
+
+  </ion-card>
+  <ion-card>
+      <ion-row>
+         <ion-col col-6>
+             <p> Down Date<span style="color:rgb(255, 255, 255)">*</span></p>
+             <ion-item id="high">
+                 <ion-label *ngIf="!downDate">Down Date<span style="color:rgb(255, 255, 255)">*</span></ion-label>
+                 <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="downDate"></ion-datetime>
+             </ion-item>
+         </ion-col>
+         <ion-col col-6>
+            <p> Down Time<span style="color:rgb(255, 255, 255)">*</span></p>
+             <ion-item id="high">
+                 <ion-label *ngIf="!downTime">Down Time<span style="color:rgb(255, 255, 255)">*</span></ion-label>
+                 <ion-datetime displayFormat="h:mm A" pickerFormat="HH:mm"  [(ngModel)]="downTime"></ion-datetime>
+             </ion-item>
+         </ion-col>
+      </ion-row>
+      
+    </ion-card>
+     
+         <ion-card>
+           <ion-row>
+             <ion-col col-6>
+                <p>Up Date<span style="color:rgb(255, 255, 255)">*</span></p>
+                 <ion-item id="high">
+                     <ion-label *ngIf="!upDate">Up Date<span style="color:rgb(255, 255, 255)">*</span></ion-label>
+                     <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="upDate"></ion-datetime>
+                   </ion-item>
+             </ion-col>
+             <ion-col col-6>
+                <p>Up Time<span style="color:rgb(255, 255, 255)">*</span></p>
+                 <ion-item id="high">
+                     <ion-label *ngIf="!upTime">Up Time<span style="color:rgb(255, 255, 255)">*</span></ion-label>
+                     <ion-datetime displayFormat="h:mm A" pickerFormat="HH:mm" [(ngModel)]="upTime"></ion-datetime>
+                 </ion-item>
+             </ion-col>
+           </ion-row>
+         
+         </ion-card>
+          
+         <ion-card>
+          <ion-item disabled>
+            <ion-label floating>Raised By</ion-label>
+            <ion-select [(ngModel)]="raisedby" disabled>
+                <ion-option *ngFor="let item of SiftincArr" value="{{item.Employee_ID}}" >{{item.Desc_Code}}</ion-option>
+              
+              </ion-select>
+          </ion-item>
+       </ion-card>
+
+     
+       
+        <ion-card>
+           <ion-item >
+               <ion-label>Status<span style="color:red">*</span></ion-label>
+                   <ion-select [(ngModel)]="Status">
+                     <ion-option *ngFor="let item of eventStatusData" value="{{item.Event_Status_ID}}">{{item.Description}}</ion-option>
+                   
+                   </ion-select>
+                 </ion-item>
+        </ion-card>
+        <ion-card>
+           <ion-item>
+               <ion-label>Priority<span style="color:red">*</span></ion-label>
+               <ion-select [(ngModel)]="priorityidget">
+                 <ion-option *ngFor="let item of priorityGet" value="{{item.Priority_ID}}" >{{item.Description}}</ion-option>   
+               </ion-select>
+             </ion-item>
+        </ion-card>
+    
+   
+      
+   
+     <ion-card>
+
+        <ion-item>
+            <ion-label>Shift In charge<span style="color:red">*</span></ion-label>
+            <ion-select [(ngModel)]="shiftInCharge">
+              <ion-option *ngFor="let item of SiftInChargeList" value="{{item.Employee_ID}}" >{{item.Desc_Code}}</ion-option>   
+            </ion-select>
+        </ion-item>
+     </ion-card>
+     <ion-card>
+     <ion-item>
+         <ion-label>Engineer<span style="color:red">*</span></ion-label>
+         <ion-select [(ngModel)]="engineerid">
+            <ion-option *ngFor="let item of employeeList" value="{{item.Employee_ID}}" >{{item.Desc_Code}}</ion-option>   
+          </ion-select>
+     </ion-item>
+   </ion-card>
+  
+       
+     <ion-card>
+       <ion-item>
+         <ion-label floating>Handover comments</ion-label>
+         <ion-textarea name="Handovercomments" [(ngModel)]="HandoverComments"></ion-textarea>
+       </ion-item>
+     </ion-card>
+
+   <p>Downtime Allocation</p>
+     <ion-card>
+      <ion-item>
+          <ion-label>Activity<span style="color:red">*</span></ion-label>
+          <ion-select [(ngModel)]="activitytwoget">
+              <ion-option *ngFor="let item of activitytwo" value="{{item.Activity_ID}}" >{{item.Desc_Code}}</ion-option>   
+            </ion-select>
+         
+      </ion-item>
+  </ion-card>
+       <!-- <ion-card>
+       <ion-item>
+          <ion-label>Priority<span style="color:red">*</span></ion-label>
+          <ion-select [(ngModel)]="priorityidget">
+            <ion-option *ngFor="let item of priorityGet" value="{{item.Priority_ID}}" >{{item.Description}}</ion-option>   
+          </ion-select>
+        </ion-item>
+       </ion-card> -->
+
+       <ion-card>
+        <ion-item>
+           <ion-label>Responsibility<span style="color:red">*</span></ion-label>
+           <ion-select [(ngModel)]="res_id">
+             <ion-option *ngFor="let item of respons" value="{{item.Responsibility_ID}}" >{{item.Description}}</ion-option>   
+           </ion-select>
+         </ion-item>
+        </ion-card>
+
+ <div text-center>
+ 
+      <ion-buttons (click)="view()" >
+        <button ion-button round color="secondary">
+          Edit Workorders
+        </button>
+      </ion-buttons>
+ 
+
+     
+
+  
+    </div>
+
+
+
+
+
+
+
+
+</ion-content>

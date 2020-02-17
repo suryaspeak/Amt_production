@@ -1,0 +1,109 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  selectbuttondeselect: rgb(237, 241, 241),
+  whit : #ffffff,
+  header :   #3856a6,
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  offline:  rgb(99, 95, 95),
+  yellow:  #ebe8e0, 
+  listblue: rgb(169, 210, 238),
+  listred: rgb(247, 192, 204),
+  listgreen: rgb(132, 226, 174),
+  listsky: rgb(189, 195, 197),
+  selectbutton: #f6882d
+);
+$alert-ios-content-max-height:400px !default; 
+$alert-md-content-max-height:400px !default;
+$alert-md-content-max-width:200px !default;
+$alert-min-width:	300px;
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+// $alert-ios-content-max-height:1000px ;
+// $alert-md-content-max-height:700px ;
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+@font-face {
+  font-family: GlobalFont;
+  src: url("../assets/font/CALIBRIB.TTF");
+  }
+  
+  body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title, ion-col,ion-grid {
+  font-family: 'GlobalFont' !important;
+  }

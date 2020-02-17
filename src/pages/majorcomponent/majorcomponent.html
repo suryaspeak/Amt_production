@@ -1,0 +1,80 @@
+<!--
+  Generated template for the MajorcomponentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Major Components</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <h4 text-center>  <b>LCC List</b></h4>
+    <ion-card  *ngFor="let item of List" paddding (click)="next(item.Event_ID)">
+        <!-- <ion-card-header  text-center>
+            <b>LCC List</b>
+        </ion-card-header> -->
+      <div style="float:left;width:70%;">
+            <p>Equipment:  {{item.EqpPlan}}</p>
+            <p>CC: {{item.Component_Code}}</p>
+            <p>Expected Up:  {{item.Expected_Up_Time}}</p>
+      </div>
+      <div style="float:left;width:30%;">
+        <div style="float:left;width: 75%;" *ngIf="Usertype=='Planner'">
+          <p *ngIf="item.project_manager=='1'">PM</p>
+          <p *ngIf="item.central_manager=='1'">CM</p>
+          <p *ngIf="item.customer=='1'">Customer </p>
+        </div>
+        <div style="float:left;width: 25%;" *ngIf="Usertype=='Planner'">
+           <p *ngIf="item.project_manager_approval_status=='Pending'"> <ion-icon style="color:yellow" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.project_manager_approval_status=='Approve'"> <ion-icon style="color:rgb(8, 145, 38)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.project_manager_approval_status=='Denied'"> <ion-icon style="color:rgb(145, 8, 19)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.project_manager_approval_status=='Resent'"> <ion-icon style="color:rgb(228, 139, 6)" name="ios-radio-button-on"></ion-icon></p>
+        
+           <p *ngIf="item.central_manager_approval_status=='Pending'"> <ion-icon style="color:yellow" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.central_manager_approval_status=='Approve'"> <ion-icon style="color:rgb(8, 145, 38)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.central_manager_approval_status=='Denied'"> <ion-icon style="color:rgb(145, 8, 19)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.central_manager_approval_status=='NA'"> <ion-icon style="color:rgb(112, 109, 109)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.central_manager_approval_status=='Resent'"> <ion-icon style="color:rgb(228, 139, 6)" name="ios-radio-button-on"></ion-icon></p>
+        
+
+
+           <p *ngIf="item.Approval_Status=='Pending'"> <ion-icon style="color:yellow" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.Approval_Status=='Approve'"> <ion-icon style="color:rgb(8, 145, 38)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.Approval_Status=='Denied'"> <ion-icon style="color:rgb(145, 8, 19)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.Approval_Status=='NA'"> <ion-icon style="color:rgb(112, 109, 109)" name="ios-radio-button-on"></ion-icon></p>
+           <p *ngIf="item.Approval_Status=='Resent'"> <ion-icon style="color:rgb(228, 139, 6)" name="ios-radio-button-on"></ion-icon></p>
+        
+
+
+        </div>
+        <div   *ngIf="Usertype=='Project Manager'">
+       
+          <p text-center style="background-color:rgb(30, 196, 58)" *ngIf="item.project_manager_approval_status=='Approve'">{{item.project_manager_approval_status}}</p>
+           <p text-center style="background-color:rgb(196, 196, 30)" *ngIf="item.project_manager_approval_status=='Pending'">{{item.project_manager_approval_status}}</p>
+           <!-- <p text-center style="background-color:rgb(102, 105, 103)" *ngIf="item.project_manager_approval_status=='NA'">{{item.project_manager_approval_status}}</p> -->
+           <p text-center style="background-color:rgb(196, 36, 30)" *ngIf="item.project_manager_approval_status=='Denied'">{{item.project_manager_approval_status}}</p>
+           <p text-center style="background-color:rgb(236, 166, 34)" *ngIf="item.project_manager_approval_status=='Resent'">{{item.project_manager_approval_status}}</p>
+       
+       
+          </div>
+        <div  *ngIf="Usertype=='Central Manager'">
+     
+
+          <p text-center style="background-color:rgb(30, 196, 58)" *ngIf="item.central_manager_approval_status=='Approve'">{{item.central_manager_approval_status}}</p>
+          <p text-center style="background-color:rgb(196, 196, 30)" *ngIf="item.central_manager_approval_status=='Pending'">{{item.central_manager_approval_status}}</p>
+          <!-- <p text-center style="background-color:rgb(102, 105, 103)" *ngIf="item.central_manager_approval_status=='NA'">{{item.central_manager_approval_status}}</p> -->
+          <p text-center style="background-color:rgb(196, 36, 30)" *ngIf="item.central_manager_approval_status=='Denied'">{{item.central_manager_approval_status}}</p>
+          <p text-center style="background-color:rgb(238, 184, 34)" *ngIf="item.central_manager_approval_status=='Resent'">{{item.central_manager_approval_status}}</p>
+       
+        
+        </div>
+        
+      </div>
+    </ion-card>
+</ion-content>

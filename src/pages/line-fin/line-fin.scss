@@ -1,0 +1,42 @@
+page-line-fin {
+p{
+    background-color:rgb(254, 255, 223);
+    padding: 15px;
+    border:1px solid rgb(194, 186, 186);
+
+}
+h3{
+    font-size: 1.2em;
+    margin-bottom: 0px;
+}
+button {
+    align-items: baseline;
+}
+
+[col-2]{
+    border:gray solid 1px;
+    
+}
+[col-7]{
+    border:gray solid 1px;
+    
+}
+[col-5]{
+    border:gray solid 1px;
+    
+}
+
+.row:nth-child(even) {background: rgb(255, 224, 231);
+    u{
+        background: rgb(214, 237, 252) !important;
+    }
+    padding: 15px;
+}
+.row:nth-child(odd) {background: rgb(214, 237, 252);
+    u{
+         background: rgb(255, 224, 231);
+    }
+    padding: 15px;
+};
+
+}

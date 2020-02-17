@@ -1,0 +1,173 @@
+<!--
+  Generated template for the EventdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Event Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-card>
+  <ion-item text-wrap>
+    <b>Site :  <span>{{dataGet.Site}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card>
+  <ion-item text-wrap>
+    <b>Equipment :  <span>{{dataGet.EqpPlan}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card>
+  <ion-item text-wrap>
+    <b>Event ID :  <span>{{dataGet.Event_ID}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card *ngIf="dataGet.event_status=='Completed'" >
+  <ion-item text-wrap>
+    <b>Actual Down Time :  <span>{{dataGet.Actual_Down_Time}}</span> </b>
+  </ion-item>
+</ion-card>
+
+<ion-card *ngIf="dataGet.event_status=='Completed'" >
+  <ion-item text-wrap>
+    <b>Actual Up Time :  <span>{{dataGet.Actual_Up_Time}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card *ngIf="dataGet.event_status=='in Progress'" >
+  <ion-item text-wrap>
+    <b>Actual Down Time :  <span>{{dataGet.Actual_Down_Time}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card  *ngIf="dataGet.event_status=='in Progress'">
+  <ion-item text-wrap>
+    <b>Planed Up time :   <span>{{dataGet.Planned_Up_Time}}</span> </b>
+  </ion-item>
+</ion-card>
+
+<ion-card  *ngIf="dataGet.event_status=='Yet To Start'">
+  <ion-item text-wrap>
+    <b>Planed Up time :   <span>{{dataGet.Planned_Up_Time}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card *ngIf="dataGet.event_status=='Yet To Start'">
+  <ion-item text-wrap>
+    <b>Planed Down time :   <span>{{dataGet.Planned_Down_Time}}</span> </b>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <ion-item text-wrap>
+    <b>Descrtption :   <span>{{dataGet.Event_description}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card>
+  <ion-item text-wrap>
+    <b>Status :   <span>{{dataGet.event_status}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card>
+  <ion-item text-wrap>
+    <b>Current Activity :    <span>{{dataGet.Activity_description}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card>
+  <ion-item text-wrap>
+    <b>Priority :    <span>{{dataGet.Priority}}</span> </b>
+  </ion-item>
+</ion-card>
+<ion-card>
+  <ion-item text-wrap>
+    <b>Job Assigned :    <span>{{dataGet.Assigned_Engineer}}</span> </b>
+  </ion-item>
+</ion-card>
+ <p text-center padding style="background-color:#3856a6;width:100%;color:white" *ngIf="dataGet.workflow_assign=='1'">LCC workflow History </p>
+<ion-card *ngIf="dataGet.workflow_assign=='1'">
+    <ion-item text-wrap>
+        <b>Planner Approval Status :    <span>{{dataGet.planner_approval_status}}</span> </b>
+      </ion-item>
+    <ion-item text-wrap *ngIf="dataGet.planner_approval_status=='Denied'">
+    <b>Denied Reason :    <span>{{dataGet.planner_approval_reason}}</span> </b>
+   </ion-item>
+</ion-card>
+
+<ion-card *ngIf="dataGet.workflow_assign=='1'">
+  <ion-item text-wrap>
+      <b>Approve By :    <span>{{dataGet.planner_name}}</span> </b>
+    </ion-item>
+ 
+</ion-card>
+<ion-card *ngIf="dataGet.workflow_assign=='1' && dataGet.project_manager_approval_status!='NA'">
+    <ion-item text-wrap>
+        <b>Project manager Approval Status :    <span>{{dataGet.project_manager_approval_status}}</span> </b>
+      </ion-item>
+    <ion-item text-wrap *ngIf="dataGet.planner_approval_status=='Denied'">
+    <b>Denied Reason :    <span>{{dataGet.project_manager_approval_reason}}</span> </b>
+   </ion-item>
+</ion-card>
+
+<ion-card *ngIf="dataGet.workflow_assign=='1' && dataGet.project_manager_approval_status!='NA'">
+  <ion-item text-wrap>
+      <b>Approve By :    <span>{{dataGet.pm_name}}</span> </b>
+    </ion-item>
+ 
+</ion-card>
+
+<ion-card *ngIf="dataGet.workflow_assign=='1' && dataGet.central_manager_approval_status!='NA'">
+    <ion-item text-wrap>
+        <b>Central manager Approval Status :    <span>{{dataGet.central_manager_approval_status}}</span> </b>
+      </ion-item>
+    <ion-item text-wrap *ngIf="dataGet.central_manager_approval_status=='Denied'">
+    <b>Denied Reason :    <span>{{dataGet.central_manager_approval_status}}</span> </b>
+   </ion-item>
+</ion-card>
+
+<ion-card  *ngIf="dataGet.workflow_assign=='1' && dataGet.central_manager_approval_status!='NA'">
+  <ion-item text-wrap>
+      <b>Approve By :    <span>{{dataGet.cm_name}}</span> </b>
+    </ion-item>
+ 
+</ion-card>
+
+<ion-card *ngIf="dataGet.workflow_assign=='1' && dataGet.Approval_Status!='NA'">
+    <ion-item text-wrap>
+        <b>Customer Approval Status :    <span>{{dataGet.Approval_Status}}</span> </b>
+      </ion-item>
+    <ion-item text-wrap *ngIf="dataGet.planner_approval_status=='Denied'">
+    <b>Denied Reason :    <span>{{dataGet.Approval_Reason}}</span> </b>
+   </ion-item>
+</ion-card>
+<ion-card  *ngIf="dataGet.workflow_assign=='1' && dataGet.Approval_Status!='NA'">
+  <ion-item text-wrap>
+      <b>Approve By :    <span>{{dataGet.customer_name}}</span> </b>
+    </ion-item>
+ 
+</ion-card>
+
+</ion-content>
+
+<!-- 
+or workflow_assign = 1 and planner_approval_status=='Approve' 
+
+show block with blue heading as LCC workflow History:
+Planner Approval status:
+if status=denied,  show Denial Reason
+
+if status!=NA, then show
+PM Approval Status:
+if status=denied,  show Denial Reason
+
+if status!=NA, then show
+CM Approval Status:
+if status=denied,  show Denial Reason:
+
+if status!=NA, then show
+For Customer:
+if status=denied,  show Denial Reason: -->

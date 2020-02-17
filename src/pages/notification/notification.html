@@ -1,0 +1,46 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-list>
+    <ion-item *ngFor="let item of listNotification" no-lines (click)="Notification(item)">
+      
+      <ion-card>
+
+    
+      <div>
+          <!-- <ion-icon style="float:right" name="close" item-start (click)="cross()"></ion-icon> -->
+          <div style="float:left;width: 49%;">
+              <p style="font-size:18px;">{{item.activity_type}}</p>
+              <!-- <p>{{item.name}} </p> -->
+              <p> {{item.EqpPlan}}</p>
+              
+          </div>
+         <div style="float:left;width: 49%;">
+            <p style="margin-left: 5%;font-size:16px;">
+                {{item.notification_date.substring(0,10)}}  {{item.notification_date.substring(11,20) || "hh:mm:ss"}}
+            </p>
+             <p style="margin-left: 5%;font-size:16px;">{{item.Actual_Down_Time}}</p>
+          
+         </div>
+      </div>
+    
+     
+      <p>{{item.Description}}</p>
+    </ion-card>
+      
+    </ion-item>
+  </ion-list>
+</ion-content>

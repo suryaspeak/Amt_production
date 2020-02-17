@@ -1,0 +1,115 @@
+<!--
+  Generated template for the ViewtaskPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header" >
+    <ion-title>View Task</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-grid>
+        <ion-row>
+           <ion-col col-6 text-center >
+            <button (click)="view()" ion-button color="selectbutton"  full>View/Edit</button>
+      </ion-col>
+      <ion-col col-6 text-center >
+        <button  ion-button  color="whit" style="color:#f6882d" full>Create</button>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  <ion-card *ngFor="let item of dataget">
+    
+     <div *ngIf="item.status_desc=='Outstanding'">
+      <ion-item style="background-color:rgb(189, 195, 197)">
+          <h3>Description:<span style="margin-left:5px;"> <b>{{item.Task_Description}}</b></span> </h3>
+        <p>Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+        <!-- <p>Description:<span style="margin-left:5px;"> <b>{{item.Task_Description}}</b></span> </p> -->
+        <p>Target Date: <span style="margin-left:5px;"> <b>{{item.Performed_By_Date| slice:0:11}}</b> </span></p>
+        <!-- <p >Status: <span style="margin-left:5px;"> <b>up</b> </span></p> -->
+      
+      </ion-item>
+      
+      <ion-item text-center style="background-color:rgb(189, 195, 197)">
+        <button ion-button color="secondary" (click)="taskdetails(item)" item-end>
+            <span *ngIf="item.Task_Status_ID!='3'">View & Edit</span>
+            <span *ngIf="item.Task_Status_ID=='3'">View </span>
+          </button>
+      
+      </ion-item>
+     </div> 
+
+     <div *ngIf="item.status_desc=='Yet To Start'">
+      <ion-item style="background-color:rgb(132, 226, 174)">
+          <h3>Description:<span style="margin-left:5px;"> <b>{{item.Task_Description}}</b></span> </h3>
+        <p>Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+        <!-- <p>Description:<span style="margin-left:5px;"> <b>{{item.Task_Description}}</b></span> </p> -->
+        <p>Target Date: <span style="margin-left:5px;"> <b>{{item.Performed_By_Date| slice:0:11}}</b> </span></p>
+        <!-- <p >Status: <span style="margin-left:5px;"> <b>up</b> </span></p> -->
+ 
+      </ion-item>
+      
+      <ion-item text-center style="background-color:rgb(132, 226, 174)">
+        <button ion-button color="secondary" (click)="taskdetails(item)" item-end>
+            <span *ngIf="item.Task_Status_ID!='3'">View & Edit</span>
+            <span *ngIf="item.Task_Status_ID=='3'">View </span>
+        </button>
+      
+      </ion-item>
+     </div> 
+
+
+     <div *ngIf="item.status_desc=='In Progress'">
+      <ion-item style="background-color:rgb(247, 192, 204) ">
+        <p>Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+        <p>Description:<span style="margin-left:5px;"> <b>{{item.Task_Description}}</b></span> </p>
+        <p>Down-Time: <span style="margin-left:5px;"> <b>{{item.Actual_Down_Time | slice:0:11}}</b> </span></p>
+        <!-- <p >Status: <span style="margin-left:5px;"> <b>up</b> </span></p> -->
+      
+      </ion-item>
+      
+      <ion-item text-center style="background-color:rgb(247, 192, 204) ">
+        <button ion-button color="secondary" (click)="taskdetails(item)" item-end>
+            <span *ngIf="item.Task_Status_ID!='3'">View & Edit</span>
+            <span *ngIf="item.Task_Status_ID=='3'">View </span>
+        </button>
+      
+      </ion-item>
+     </div> 
+
+
+     <div *ngIf="item.status_desc=='Completed'">
+      <ion-item color="listblue">
+          <h3>Description:<span style="margin-left:5px;"> <b>{{item.Task_Description}}</b></span> </h3>
+        <p>Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+
+        <p>Target Date: <span style="margin-left:5px;"> <b>{{item.Performed_By_Date| slice:0:11}}</b> </span></p>
+        <!-- <p >Status: <span style="margin-left:5px;"> <b>up</b> </span></p> -->
+     
+      </ion-item>
+ 
+      <ion-item text-center color="listblue">
+        <button ion-button color="secondary" (click)="taskdetails(item)" item-end>
+            <span *ngIf="item.Task_Status_ID=='1'">View & Edit</span>
+            <span *ngIf="item.Task_Status_ID!='1'">View </span>
+        </button>
+      
+      </ion-item>
+     </div> 
+
+     <!-- Completed , In Progress, Outstanding, Yet To Start -->
+
+</ion-card>  
+  
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content loadingText="Loading your leads..." *ngIf="pagingEnabled"></ion-infinite-scroll-content>
+</ion-infinite-scroll> 
+ <div *ngIf="!pagingEnabled" text-center> <b>No more data is available.</b> </div>
+
+</ion-content>

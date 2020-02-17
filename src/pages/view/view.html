@@ -1,0 +1,114 @@
+<!--
+  Generated template for the ViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>View</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-grid>
+        <!-- <ion-row>
+           <ion-col col-6 text-center >
+            <button (click)="view()" ion-button color="dark">View/Edit</button>
+      </ion-col>
+      <ion-col col-6 text-center >
+        <button (click)="add()" ion-button color="light" outline>Create</button>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row>
+        <ion-col col-6 text-center>
+            <button ion-button (click)="view()" color="selectbutton" style="color:white" full>View/Edit</button>
+        </ion-col>
+        <ion-col col-6 text-center (click)="add()">
+            <button ion-button color="whit" style="color:#f6882d"  full>Create</button>
+        </ion-col>
+    </ion-row>
+
+    </ion-grid>
+        
+
+            <div class="colorget" *ngFor="let item of dataget" >
+              <div *ngIf="item.event_status=='Completed'" class="colorlist">
+                
+              
+            
+                <ion-item color="listblue" >
+                    <p >Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+                    <p>Description:<span style="margin-left:5px;"> <b>{{item.Event_description}}</b></span> </p>
+                    <p >Actual Down-Time: <span style="margin-left:5px;"> <b>{{item.Actual_Down_Time}}</b> </span></p>
+                    <p >Status: <span style="margin-left:5px;"> <b>{{item.event_status}}</b> </span></p>
+                    
+               </ion-item>
+               
+                <ion-item text-center  color="listblue" >
+                 <button ion-button color="light" (click)="details(item)" item-end  >View Details</button>
+                 <!-- <button *ngIf="item.Event_ID" ion-button item-end (click)="edit(item)"  >Edit</button> -->
+                </ion-item>
+              </div>
+
+              <div *ngIf="item.event_status=='Yet To Start'" class="colorlist">
+                
+            
+                  <ion-item color="listgreen" >
+                      <p >Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+                      <p>Description:<span style="margin-left:5px;"> <b>{{item.Event_description}}</b></span> </p>
+                      <p >Planned Down-Time: <span style="margin-left:5px;"> <b>{{item.Planned_Down_Time}}</b> </span></p>
+                      <p >Status: <span style="margin-left:5px;"> <b>{{item.event_status}}</b> </span></p>
+                      
+                 </ion-item>
+                 
+                  <ion-item text-center color="listgreen" >
+                      <button *ngIf="item.Event_ID" ion-button item-end (click)="edit(item)" color="light">Edit</button>
+                      <button *ngIf="item.Event_ID" ion-button item-end (click)="assign(item.Event_ID)" color="light" >Assign</button>
+                      <button *ngIf="item.Event_ID"  color="light" ion-button item-end (click)="attac(item)" color="light">Attach Workorder</button>
+                   <button ion-button color="light" (click)="details(item)" item-end color="light" >View Details</button>
+                  
+                  </ion-item>
+                </div>
+
+
+              <div *ngIf="item.event_status=='in Progress'" class="colorlist">
+                
+            
+                  <ion-item color="listred" >
+                      <p >Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+                      <p>Description:<span style="margin-left:5px;"> <b>{{item.Event_description}}</b></span> </p>
+                      <p >Actual Down-Time: <span style="margin-left:5px;"> <b>{{item.Actual_Down_Time}}</b> </span></p>
+                      <p >Status: <span style="margin-left:5px;"> <b>{{item.event_status}}</b> </span></p>
+                      
+                 </ion-item>
+                 
+                  <ion-item text-center  color="listred">
+                      <button *ngIf="item.Event_ID" ion-button item-end (click)="edit(item)" color="light">Edit</button>
+                      <button *ngIf="item.Event_ID" ion-button item-end (click)="assign(item.Event_ID)" color="light">Assign</button>
+                      <button *ngIf="item.Event_ID" ion-button item-end (click)="attac(item)" color="light">Attach Workorder</button>
+                   <button ion-button color="light"  (click)="details(item)" item-end color="light" >View Details</button>
+                
+                  </ion-item>
+                </div>
+
+               
+
+            </div>
+      
+         
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content loadingText="Loading your leads..." *ngIf="pagingEnabled"></ion-infinite-scroll-content>
+            </ion-infinite-scroll> 
+             <div *ngIf="!pagingEnabled" text-center> <b>No more data is available.</b> </div>
+
+ 
+     
+</ion-content>

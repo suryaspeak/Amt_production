@@ -1,0 +1,60 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <!-- <iframe width="100%" height="20%" src="http://campadvait.in/laddr/voicenote/vn_15671943636126.mp3"></iframe> -->
+    
+
+    <ion-row>
+      <ion-col col-12 >
+        <ion-list>
+          <ion-list-header color="yellow" text-center>
+           Maintanence KPI
+          </ion-list-header>
+          <ion-item (click)="table()" *ngIf="permissionadmintabular !=0"> <ion-icon name="list-box"></ion-icon> &nbsp;&nbsp; Tabular View</ion-item>
+          <ion-item (click)="line()"  *ngIf="permissionadminline!=0"> <ion-icon name="pulse"></ion-icon> &nbsp;&nbsp; Line Chart View</ion-item>
+          <ion-item (click)="bar()" *ngIf="permissionadminbar!=0"> <ion-icon name="stats"></ion-icon> &nbsp;&nbsp; Bar Graph View</ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-12 >
+        <ion-list>
+          <ion-list-header text-center>
+            Backlogs KPI
+          </ion-list-header>
+          <ion-item (click)="BacklocTable()" *ngIf="backlogtabular!=0"> <ion-icon name="list-box"></ion-icon> &nbsp;&nbsp; Tabular View</ion-item>
+          <ion-item (click)="BacklocLine()" *ngIf="backlogline!=0"> <ion-icon name="pulse"></ion-icon>&nbsp;&nbsp; Line Chart View</ion-item>
+          <!-- <ion-item> <ion-icon name="stats"></ion-icon>&nbsp;&nbsp; Bar Graph View</ion-item> -->
+        </ion-list>
+      </ion-col>
+   
+    
+      <ion-col col-12 >
+        <ion-list>
+          <ion-list-header text-center>
+            Financial KPI
+          </ion-list-header>
+          <ion-item (click)="Financialtable()" *ngIf="financialtabular !=0"> <ion-icon name="list-box"></ion-icon> &nbsp;&nbsp; Tabular View</ion-item>
+          <ion-item  *ngIf="financialline>0" (click)="LineChat()" > <ion-icon name="pulse"></ion-icon>&nbsp;&nbsp; Line Chart View</ion-item>
+         
+          <!-- <ion-item>Blade Runner</ion-item> -->
+        </ion-list>
+      </ion-col>
+   
+    </ion-row>
+ 
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "gainwell-emp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,254 @@
+<!--
+  Generated template for the WorkorderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="header">
+        
+        <ion-title>Work Order</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6 text-center>
+                <button ion-button (click)="view()" color="whit" style="color:#f6882d" full>View/Edit</button>
+            </ion-col>
+            <ion-col col-6 text-center>
+                <button ion-button color="selectbutton" full>Create</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <p style="background-color:#477fe8">Basic Info</p>
+    <ion-card>
+        <ion-item>
+            <ion-label floating>Task Description<span style="color:red">*</span></ion-label>
+            <ion-textarea name="taskDescription" [(ngModel)]="taskDescription"></ion-textarea>
+        </ion-item>
+    </ion-card>
+
+
+
+    <ion-card>
+          <ion-row>
+            <ion-col col-10 no-padding>
+              <ion-input type="text" placeholder="Enter Component name*" [(ngModel)]="SearchValueCompontent"></ion-input>
+            </ion-col>
+            <ion-col col-2 text-right no-padding (click)="getComponent(SearchValue)">
+              <button ion-button icon-only color="dark" full>
+                <ion-icon name="search"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+       
+        <ion-list radio-group  (onChange)="datagetnewo(rmchecked)">
+         <div style="height:150px;overflow:scroll" *ngIf="booleamcom===true">
+            <ion-item *ngFor="let item of ComponentArr">
+                <ion-label>{{item.Desc_Code}}</ion-label>
+                <ion-radio value="{{item.ComponentCodeID}}" (ionSelect)="comselect(item.ComponentCodeID)"></ion-radio>
+              </ion-item>
+         </div>
+   
+        </ion-list>
+      </ion-card>
+
+
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Modifier code<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="Modifiercode" [items]="modifierCodeArr" itemValueField="ModifierID"
+                itemTextField="Desc_Code" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Task type<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="Tasktype" [items]="taskTypearr" itemValueField="TaskTypeID"
+                itemTextField="Desc_Code" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Task Counter<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="TaskCounter" [items]="ports" itemValueField="ApplicationCodeID"
+                itemTextField="Desc_Code" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Task Status<span style="color:red">*</span></ion-label>
+            <ion-select [(ngModel)]="Task_Status_ID">
+                <ion-option *ngFor="let taskitem of taskDescarr" value="{{taskitem.Task_Status_ID}}">{{taskitem.Description}}</ion-option>
+
+            </ion-select>
+        </ion-item>
+    </ion-card>
+
+
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Date Notified<span style="color:red">*</span></ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="datenotified"></ion-datetime>
+
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Estimated Total duration hrs<span style="color:red">*</span></ion-label>
+            <ion-input type="tel" [(ngModel)]="EstimatedTotaldurationhrs"></ion-input>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Estimated labour qty<span style="color:red">*</span></ion-label>
+            <ion-input type="tel" [(ngModel)]="Estimatedlabourqty"></ion-input>
+
+        </ion-item>
+    </ion-card>
+    <ion-card>
+        <ion-item>
+            <ion-label floating>Estimated labour hrs<span style="color:red">*</span></ion-label>
+            <ion-input type="tel" [(ngModel)]="Estimatedlabourhrs"></ion-input>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Raised By<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="raisedBy" [items]="SiftincArr" itemValueField="Employee_ID"
+                itemTextField="Desc_Code" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <p style="background-color:#477fe8">Parts</p>
+    
+    <ion-card>
+        <ion-row>
+
+
+            <ion-col col-10 no-padding>
+                <ion-input type="text" placeholder="Search Parts" [(ngModel)]="SearchValue"></ion-input>
+            </ion-col>
+            <ion-col col-2 text-right no-padding (click)="getItems(SearchValue)" class="brk">
+                <button ion-button icon-only color="dark" full>
+                    <ion-icon name="search"></ion-icon>
+                </button>
+
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <ion-list radio-group [(ngModel)]="rmchecked" *ngIf="partsarr" class="subha">
+      
+        <ion-item no-padding >
+                <div *ngFor="let item of partsarrget;let i=index" >
+     
+            <ion-row no-padding >
+                <ion-col col-1 padding>
+                   {{i+1}}:
+                </ion-col>
+                <ion-col col-9 padding>
+                    {{item.name}}
+                </ion-col>
+                <ion-col col-2 no-padding>
+                    <ion-item no-padding id="df" no-lines>
+                        <ion-input type="tel" placeholder="QTY" [(ngModel)]="item.qt"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </div>
+        </ion-item>
+        <div *ngIf="partsbool===true">
+            <div style="height:150px; overflow:scroll" >
+                <ion-item *ngFor="let item of partsarr">
+                    <ion-label>{{item.Desc_Code}}</ion-label>
+                    <ion-radio value="{{item.PartId}}" (ionSelect)="mcqAnswer(item.PartId,item.Desc_Code)"></ion-radio>
+                </ion-item>
+            </div>
+        </div>
+       
+      
+    </ion-list>
+
+
+
+
+
+
+
+
+    <p style="background-color:#477fe8">Feedback Info</p>
+
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Source<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="sourceId" [items]="sourceGetarr" itemValueField="Source_ID"
+                itemTextField="Description" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Symptom<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="Symptom" [items]="symptomgetArr" itemValueField="Symptom_ID"
+                itemTextField="Description" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Cause<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="Cause" [items]="CauseArr" itemValueField="Cause_ID"
+                itemTextField="Description" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label>Job code<span style="color:red">*</span></ion-label>
+            <select-searchable item-content [(ngModel)]="JobCode" [items]="JobCodeArr" itemValueField="JobCodeID"
+                itemTextField="Description" [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-label floating>Repair description<span style="color:red">*</span></ion-label>
+            <ion-input type="text" [(ngModel)]="repairDesc"></ion-input>
+        </ion-item>
+    </ion-card>
+
+
+
+
+    <ion-buttons (click)="job()">
+        <button ion-button round id="but">
+            Submit
+        </button>
+    </ion-buttons>
+
+
+</ion-content>

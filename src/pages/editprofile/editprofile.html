@@ -1,0 +1,39 @@
+<!--
+  Generated template for the EditprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label stacked>Old Password</ion-label>
+        <ion-input type="password" placeholder="********" [(ngModel)]="oldpassword"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>New Password</ion-label>
+        <ion-input type="password" placeholder="********" [(ngModel)]="newpassword"></ion-input>
+     </ion-item>
+
+     <ion-item>
+        <ion-label stacked>Address</ion-label>
+        <ion-input type="text" [(ngModel)]="address"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Mobile</ion-label>
+          <ion-input type="text" [(ngModel)]="mobile"></ion-input>
+        </ion-item>
+
+        <div text-center (click)="Update()" margin>
+            <button ion-button round color="secondary">Update</button>
+        </div>
+      
+</ion-content>

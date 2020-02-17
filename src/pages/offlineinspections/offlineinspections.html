@@ -1,0 +1,118 @@
+<!--
+  Generated template for the QuestionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='offline'>
+    <ion-title>Create Check List</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+
+
+<ion-content>
+  <ion-row *ngFor="let item of apivalue; let k=index">
+    <ion-row id="smu">
+      <ion-col col-6>
+        <h4>Enter SMU</h4>
+      </ion-col>
+      <ion-col col-6>
+        <ion-input type="tel" [(ngModel)]="item.smu" required></ion-input>
+
+      </ion-col>
+    </ion-row>
+    <ion-col col-12 *ngFor="let itemnew of item.classification; let i=index" text-wrap>
+      <h3 (click)="toggleGroup(i)" id="firstp" [ngClass]="{active: isGroupShown(i)}">
+
+        <ion-icon color="success" item-left [name]="isGroupShown(i) ? 'ios-remove' : 'ios-add'">
+        </ion-icon>
+        {{itemnew.classification_name}}
+
+        <ion-icon *ngIf="itemnew.question[0].ques_subpart_first_answer !=''" color="secondary" style="float:right"
+          name="ios-checkmark-circle"></ion-icon>
+
+      </h3>
+      <div *ngIf="isGroupShown(i)">
+        <!-- {{itemnew.question.length}} -->
+        <div *ngFor="let qstion of itemnew.question; let j=index">
+
+
+
+          <ion-row id="secendpart">
+            <ion-col col-1 [ngClass]="{active: isGroupShownnew(j)}" no-padding (click)="toggleGroupnewplus(j,itemnew.question.length,i,k,0)">
+              <ion-icon color="dark" item-left [name]="isGroupShownnew(j) ? 'ios-remove' : 'ios-add'">
+              </ion-icon>
+            </ion-col>
+            <ion-col col-9>
+              {{qstion.question}}
+
+            </ion-col>
+
+            <ion-col col-2 no-padding id="iconcolor" *ngIf="qstion.txt_value=='0'">
+              <div [class.selected]="qstion.selected" (click)="toggleGroupnewcross(j,itemnew.question.length,i,k,1)">
+                <ion-icon style="float:left" class="abc" name="ios-checkmark-circle"></ion-icon>
+              </div>
+              <div [class.selectedred]="qstion.selectedred"
+                (click)="toggleGroupnewcross(j,itemnew.question.length,i,k,0)">
+                <ion-icon class="abcd" style="float:right" name="ios-close-circle"></ion-icon>
+              </div>
+
+
+            </ion-col>
+             <ion-col col-2  *ngIf="qstion.txt_value=='1'">
+                <ion-input type="tel" [(ngModel)]="qstion.answer"></ion-input>
+             </ion-col>
+
+          </ion-row>
+          <div *ngIf="isGroupShownnew(j)">
+
+            <ion-row *ngIf="qstion.ques_subpart_first">
+           
+              <ion-col col-12>
+                <b>{{qstion.ques_subpart_first}}</b>
+              </ion-col>
+            </ion-row>
+
+
+
+
+            <ion-row *ngIf="qstion.ques_subpart_second">
+            
+              <ion-col col-12>
+                <b>{{qstion.ques_subpart_second}}<span style="color:red" *ngIf="qstion.cross_click=='true'">*</span></b>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-3>
+                <b>Notes<span style="color:red" *ngIf="qstion.cross_click=='true'">*</span></b>
+              </ion-col>
+              <ion-col col-12>
+                <ion-input type="text" [(ngModel)]="qstion.note"></ion-input>
+
+              </ion-col>
+            </ion-row>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </ion-col>
+  </ion-row>
+  <div text-center>
+    <ion-row>
+    
+      <ion-col text-center>
+          <button ion-button color="secondary" (click)="sumMit()">Submit</button>
+      </ion-col>
+    </ion-row>
+  
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,73 @@
+<!--
+  Generated template for the EventofflinelistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="offline">
+    <ion-title>Event Offline List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-list>
+
+  <div  *ngFor="let item of list">
+
+ 
+
+  <ion-item color="listred"  *ngIf="item.Event_Status_ID=='2'">
+
+
+    <p >Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+    <p>Description:<span style="margin-left:5px;"> <b>{{item.Event_description}}</b></span> </p>
+    <p >Actual Down-Time: <span style="margin-left:5px;"> <b>{{item.Actual_Down_Time}}</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='2'">Status: <span style="margin-left:5px;"> <b>InProgress</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='1'">Status: <span style="margin-left:5px;"> <b>Yet To Start</b> </span></p>
+   
+    <ion-item text-center  color="listred" no-lines>
+        <button ion-button color="light" (click)="edit(item)" item-end  >Edit</button>
+      <!-- <button ion-button color="light" (click)="details(item)" item-end  >View Details</button> -->
+      <!-- <button *ngIf="item.Event_ID" ion-button item-end (click)="edit(item)"  >Edit</button> -->
+     </ion-item>
+</ion-item>
+
+<ion-item color="listgreen"  *ngIf="item.Event_Status_ID=='1'">
+
+
+    <p >Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+    <p>Description:<span style="margin-left:5px;"> <b>{{item.Event_description}}</b></span> </p>
+    <p >Actual Down-Time: <span style="margin-left:5px;"> <b>{{item.Actual_Down_Time}}</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='2'">Status: <span style="margin-left:5px;"> <b>InProgress</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='1'">Status: <span style="margin-left:5px;"> <b>Yet To Start</b> </span></p>
+   
+    <ion-item text-center  color="listgreen" no-lines>
+        <button ion-button color="light" (click)="edit(item)" item-end  >Edit</button>
+      <!-- <button ion-button color="light" (click)="details(item)" item-end  >View Details</button> -->
+      <!-- <button *ngIf="item.Event_ID" ion-button item-end (click)="edit(item)"  >Edit</button> -->
+     </ion-item>
+</ion-item>
+
+<!-- <ion-item color="secondary"  *ngIf="item.Event_Status_ID=='3'">
+
+
+    <p >Equipment:<span style="margin-left:5px;"> <b>{{item.EqpPlan}}</b></span> </p>
+    <p>Description:<span style="margin-left:5px;"> <b>{{item.Description}}</b></span> </p>
+    <p >Actual Down-Time: <span style="margin-left:5px;"> <b>{{item.Actual_Down_Time}}</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='2'">Status: <span style="margin-left:5px;"> <b>InProgress</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='1'">Status: <span style="margin-left:5px;"> <b>Yet To Start</b> </span></p>
+    <p *ngIf="item.Event_Status_ID=='3'">Status: <span style="margin-left:5px;"> <b>Complate</b> </span></p>
+    <ion-item text-center  color="secondary" no-lines>
+        <button ion-button color="light" (click)="edit(item)" item-end  >Edit</button>
+      <!-- <button ion-button color="light" (click)="details(item)" item-end  >View Details</button> -->
+      <!-- <button *ngIf="item.Event_ID" ion-button item-end (click)="edit(item)"  >Edit</button> -->
+     <!-- </ion-item>
+</ion-item> --> 
+</div>
+</ion-list>
+</ion-content>

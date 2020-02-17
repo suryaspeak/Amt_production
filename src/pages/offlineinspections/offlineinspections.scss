@@ -1,0 +1,84 @@
+page-offlineinspections {
+
+    .input-cover{
+        border:1px solid rgb(19, 18, 18);
+        // background-color: white;
+        color:black !important;
+        // border-radius: 5px;
+
+    }
+ 
+    #secendpart{
+        margin-top: 1px;
+        margin-bottom: 0px;
+        padding: 5px;
+        background-color: rgb(237, 241, 241) !important;
+       border: rgb(133, 130, 130) solid 1px;
+       font-size: 15px;
+       font-family:georgia,garamond,serif;
+       padding-left: 15px;
+       border-radius: 5px;
+    }
+    #firstp{
+       margin: 0px;
+       padding: 5px;
+       color:rgb(255, 255, 255);
+       background-color:#f6882d;
+       border: rgb(211, 207, 207) solid 1px;
+       font-size: 17px;
+       font-family:georgia,garamond,serif;
+       -webkit-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.13);
+       -moz-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.164);
+       box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.171);
+       border-radius: 5px;
+    }
+    #smu{
+         width: 100%;
+         background-color:#f6882d;
+         color:white;
+         margin: 5px;
+        -webkit-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.13);
+        -moz-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.164);
+         box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.171);
+         border-radius: 5px;
+         border: rgb(145, 143, 143) solid 1px;
+        
+    }
+    h4{
+        font-weight: bold;
+        font-size: 17px;
+       font-family:georgia,garamond,serif;
+    }
+    h5{
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        width: 160px; 
+       
+        white-space: nowrap;
+    }
+   #iconcolor ion-icon{
+        font-size: 30px;
+    }
+    .selectedred{
+        background: #ff5463 !important;
+        color: rgb(150, 31, 31) !important;
+        .abcd{
+            color: rgb(150, 31, 31) !important;
+        }
+    }
+    .abcd{
+        color:gray;
+    }
+ 
+    .selected{
+        background: #ff5463 !important;
+        color: green !important;
+        .abc{
+            color: green !important;
+        }
+    }
+    .abc{
+        color:gray;
+    }
+
+}

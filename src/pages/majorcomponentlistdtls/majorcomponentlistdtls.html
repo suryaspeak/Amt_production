@@ -1,0 +1,424 @@
+<!--
+  Generated template for the EnquiryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+
+    <ion-title>Major Components</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card style="margin-top:2%;">
+
+    <ion-list>
+
+      <p text-center style="background-color:blue;color: white;
+              padding: 2px;margin-bottom:3%;">Approval Status</p>
+      <div *ngIf="Usertype=='Planner'">
+
+
+        <!-- project manager start -->
+
+        <div *ngIf="list.project_manager=='1'">
+
+
+
+          <div *ngIf="list.wrk_planner=='0'">
+
+             
+            <button ion-button full *ngIf="list.project_manager_approval_status=='Pending'"
+              [disabled]="list.project_manager_approval_status=='Approve'" style="background-color:#fdc830;">
+              <p style="color:white">Project Manager </p>
+            </button>
+          
+            <button ion-button full *ngIf="list.project_manager_approval_status=='Denied'"
+              [disabled]="list.project_manager_approval_status=='Approve'" style="background-color:#770e0e;">
+              <p style="color:white">Project Manager </p>
+            </button>
+            <button ion-button full *ngIf="list.project_manager_approval_status=='Resent'"
+              [disabled]="list.project_manager_approval_status=='Approve'" style="background-color:#da7d14;">
+              <p style="color:white">Project Manager </p>
+            </button>
+
+          </div>
+
+          <div *ngIf="list.wrk_planner=='1'">
+            <button ion-button full *ngIf="list.project_manager_approval_status=='Approve'"
+            [disabled]="list.project_manager_approval_status=='Approve'" style="background-color:#17770e;">
+            <p style="color:white">Project Manager </p>
+          </button>
+          </div>
+          <div *ngIf="list.manual_request_pm=='1' && list.wrk_planner=='1' && list.project_manager_approval_status=='NA'" >
+            <button ion-button full style="background-color:#2c1db6;color:white" (click)="approvalStatusButton('approval','Project Manager')">
+              <p style="color:rgb(255, 255, 255)">Request PM Approval</p>
+            </button>
+
+          </div>
+          <div *ngIf="list.project_manager_approval_status=='Denied' && list.wrk_planner=='1'">
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button full style="background-color:#770e0e;">
+                  <p style="color:white">Project Manager </p>
+                </button>
+
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button full style="background-color:#219116;" (click)="approvalStatusButton('resend','Project Manager')">
+                  <p style="color:rgb(248, 248, 248)">Resend </p>
+                </button>
+
+              </ion-col>
+            </ion-row>
+          </div>
+
+        </div>
+        <!-- project manager stop -->
+
+        <!-- Central Manager Start -->
+
+        <div *ngIf="list.central_manager=='1'">
+
+       
+        <div *ngIf="list.wrk_planner=='1'">
+
+          <button ion-button full *ngIf="list.central_manager_approval_status=='NA'" 
+          [disabled]="list.project_manager_approval_status!='Approve' || list.central_manager_approval_status=='Approve'"
+            style="background-color:#2c1db6;color:white" (click)="approvalStatusButton('approval','Central Manager')">
+            <p style="color:rgb(255, 255, 255)">Request CM Approval</p>
+          </button>
+          <button ion-button full *ngIf="list.central_manager_approval_status=='Approve'"
+          style="background-color:#17770e;" [disabled]="list.central_manager_approval_status=='Approve' ||  list.project_manager_approval_status!='Approve'">
+          <p style="color:white">Central Manager </p>
+        </button>
+          <!-- <button ion-button full *ngIf="list.central_manager_approval_status=='Denied'" style="background-color:#2c1db6;color:white"  (click)="Pmapprov()"><p style="color:rgb(255, 255, 255)" >Request CM Approval</p></button> -->
+          <ion-row *ngIf="list.central_manager_approval_status=='Denied'">
+            <ion-col col-6>
+              <button ion-button full style="background-color:#770e0e;"  [disabled]="list.project_manager_approval_status!='Approve' || list.central_manager_approval_status=='Approve'">
+                <p style="color:white">Central Manager </p>
+              </button>
+
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button full style="background-color:#38bd43;"  [disabled]="list.project_manager_approval_status!='Approve' || list.central_manager_approval_status=='Approve'" (click)="approvalStatusButton('resend','Central Manager')">
+                <p style="color:rgb(255, 255, 255)">Resend </p>
+              </button>
+
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div *ngIf="list.wrk_planner=='0'">
+          <button ion-button full *ngIf="list.central_manager_approval_status=='Pending'"
+            style="background-color:#fdc830;" [disabled]="list.central_manager_approval_status=='Approve' || list.project_manager_approval_status!='Approve'">
+            <p style="color:white">Central Manager </p>
+          </button>
+        
+          <button ion-button full *ngIf="list.central_manager_approval_status=='Denied'"
+            style="background-color:#770e0e;" [disabled]="list.central_manager_approval_status=='Approve' ||  list.project_manager_approval_status!='Approve'">
+            <p style="color:white">Central Manager </p>
+          </button>
+          <button ion-button full *ngIf="list.central_manager_approval_status=='NA'" style="background-color:#a09c9c;"
+            [disabled]="list.central_manager_approval_status=='Approve' || list.project_manager_approval_status!='Approve'">
+            <p style="color:rgb(22, 21, 21)">Central Manager </p>
+          </button>
+          <button ion-button full *ngIf="list.central_manager_approval_status=='Resent'"
+            style="background-color:#e7a325;" [disabled]="list.central_manager_approval_status=='Approve' ||  list.project_manager_approval_status!='Approve'">
+            <p style="color:rgb(22, 21, 21)">Central Manager </p>
+          </button>
+
+
+        </div>
+
+      </div>
+
+        <!-- central manager end -->
+
+
+        <!-- customer start -->
+        <div *ngIf="list.customer=='1'">
+
+      
+
+        <div *ngIf="list.wrk_planner=='1'">
+
+          <button ion-button full *ngIf="list.Approval_Status=='NA'" style="background-color:#2c1db6;color:white"
+          (click)="approvalStatusButton('approval','Customer')" [disabled]="list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' || list.Approval_Status=='Approve'">
+            <p style="color:rgb(255, 255, 255)">Request Customer Approval</p>
+          </button>
+
+          <button ion-button full *ngIf="list.Approval_Status=='Approve'" style="background-color:#17770e;"
+          [disabled]="list.Approval_Status=='Approve' ||  list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' ">
+          <p style="color:white">Request Customer Approval</p>
+        </button>
+          <ion-row *ngIf="list.Approval_Status=='Denied'">
+            <ion-col col-6>
+              <button ion-button full style="background-color:#770e0e;" [disabled]="list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' || list.Approval_Status=='Approve'">
+                <p style="color:white">Customer </p>
+              </button>
+
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button full style="background-color:#36e72f;" [disabled]="list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' || list.Approval_Status=='Approve'" (click)="approvalStatusButton('resend','Customer')">
+                <p style="color:rgb(36, 34, 34)">Resend </p>
+              </button>
+
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div *ngIf="list.wrk_planner=='0'">
+
+          <button ion-button full *ngIf="list.Approval_Status=='Pending'" style="background-color:#fdc830;"
+            [disabled]="list.Approval_Status=='Approve' || list.project_manager_approval_status!='Approve' ||  list.central_manager_approval_status!='Approve' ">
+            <p style="color:white">Request Customer Approval </p>
+          </button>
+         
+          <button ion-button full *ngIf="list.Approval_Status=='Denied'" style="background-color:#770e0e;"
+            [disabled]="list.Approval_Status=='Approve' || list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' ">
+            <p style="color:white">Request Customer Approval</p>
+          </button>
+          <button ion-button full *ngIf="list.Approval_Status=='NA'" style="background-color:#2c1db6;color:white"
+            [disabled]="list.Approval_Status=='Approve' ||  list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' " (click)="okok()">
+            <p style="color:rgb(255, 255, 255)">Request Customer Approval</p>
+          </button>
+          <button ion-button full *ngIf="list.Approval_Status=='Resent'" style="background-color:#dd9f18;color:white"
+            [disabled]="list.Approval_Status=='Approve' || list.project_manager_approval_status!='Approve' || list.central_manager_approval_status!='Approve' " (click)="okok()">
+            <p style="color:rgb(255, 255, 255)">Request Customer Approval</p>
+          </button>
+
+
+        </div>
+
+      </div>
+
+        <!-- customer end -->
+
+
+
+
+
+
+      </div>
+
+                 <!-- central manager start -->
+      <div *ngIf="Usertype=='Central Manager'">
+    
+        <div *ngIf="list.central_manager_approval_status=='Pending'">
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="statusApproc">
+              <ion-option value="Approve">Approve</ion-option>
+              <ion-option value="Denied">Denied</ion-option>
+        
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="statusApproc=='Denied'">
+            <ion-label floating>Denial Reason</ion-label>
+            <ion-input type="text" [(ngModel)]="desialReason"></ion-input>
+          </ion-item>
+          <div text-center>
+            <button ion-button color="secondary" round (click)="submitStatus()">Submit</button>
+  
+          </div>
+         </div>
+          <div >
+            <button ion-button color="secondary" full block *ngIf="list.central_manager_approval_status=='Approve'">Approve</button>
+            <button ion-button color="danger" full block *ngIf="list.central_manager_approval_status=='Denied'">Denied</button>
+
+          </div >
+
+          <div *ngIf="list.central_manager_approval_status=='Resent'">
+            <ion-card>
+              <ion-item text-wrap>
+                <b>Current Status : <span>{{list.central_manager_approval_status}}</span> </b>
+              </ion-item>
+            </ion-card>
+
+            <ion-card>
+              <ion-item text-wrap>
+                <b>Reason for Denied : <span>{{list.central_manager_approval_reason}}</span> </b>
+              </ion-item>
+            </ion-card>
+            <ion-item>
+              <ion-label>Status</ion-label>
+              <ion-select [(ngModel)]="statusApproc">
+                <ion-option value="Approve">Approve</ion-option>
+                <ion-option value="Denied">Denied</ion-option>
+          
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="statusApproc=='Denied'">
+              <ion-label floating>Denial Reason</ion-label>
+              <ion-input type="text" [(ngModel)]="desialReason"></ion-input>
+            </ion-item>
+            <div text-center>
+              <button ion-button color="secondary" round (click)="submitStatus()">Submit</button>
+    
+            </div>
+          </div>
+
+         
+       
+
+
+      </div>
+
+         <!-- central manager end -->
+      <div *ngIf="Usertype=='Project Manager'">
+         <div *ngIf="list.project_manager_approval_status=='Pending'">
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="statusApproc">
+              <ion-option value="Approve">Approve</ion-option>
+              <ion-option value="Denied">Denied</ion-option>
+        
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="statusApproc=='Denied'">
+            <ion-label floating>Denial Reason</ion-label>
+            <ion-input type="text" [(ngModel)]="desialReason"></ion-input>
+          </ion-item>
+          <div text-center>
+            <button ion-button color="secondary" round (click)="submitStatus()">Submit</button>
+  
+          </div>
+         </div>
+          <div >
+            <button ion-button color="secondary" full block *ngIf="list.project_manager_approval_status=='Approve'">Approve</button>
+            <button ion-button color="danger" full block *ngIf="list.project_manager_approval_status=='Denied'">Denied</button>
+
+          </div >
+
+          <div *ngIf="list.project_manager_approval_status=='Resent'">
+            <ion-card>
+              <ion-item text-wrap>
+                <b>Current Status : <span>{{list.project_manager_approval_status}}</span> </b>
+              </ion-item>
+            </ion-card>
+
+            <ion-card>
+              <ion-item text-wrap>
+                <b>Reason for Denied : <span>{{list.project_manager_approval_reason}}</span> </b>
+              </ion-item>
+            </ion-card>
+            <ion-item>
+              <ion-label>Status</ion-label>
+              <ion-select [(ngModel)]="statusApproc">
+                <ion-option value="Approve">Approve</ion-option>
+                <ion-option value="Denied">Denied</ion-option>
+          
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="statusApproc=='Denied'">
+              <ion-label floating>Denial Reason</ion-label>
+              <ion-input type="text" [(ngModel)]="desialReason"></ion-input>
+            </ion-item>
+            <div text-center>
+              <button ion-button color="secondary" round (click)="submitStatus()">Submit</button>
+    
+            </div>
+          </div>
+
+         
+       
+        
+      </div>
+
+
+      
+
+
+    </ion-list>
+
+
+  </ion-card>
+
+  <ion-card>
+    <p text-center style="background-color:blue;color: white;
+        padding: 2px;margin-bottom:3%;">Event Details</p>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Site : <span>{{list.Site}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Equipment : <span>{{list.EqpPlan}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Component Code : <span>{{list.Component_Code}}</span> </b>
+      </ion-item>
+    </ion-card>
+
+    <!--           
+          <ion-card  >
+            <ion-item text-wrap>
+              <b>Actual Up Time :  <span></span> </b>
+            </ion-item>
+          </ion-card>
+          <ion-card >
+            <ion-item text-wrap>
+              <b>Actual Down Time :  <span></span> </b>
+            </ion-item>
+          </ion-card> -->
+
+
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Planed Up time : <span>{{list.Planned_Up_Time}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Planed Down time : <span>{{list.Planned_Down_Time}}</span> </b>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Description : <span>{{list.Event_description}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Status : <span>{{list.event_status}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Current Activity : <span>{{list.Activity_description}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Priority : <span>{{list.Priority}}</span> </b>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item text-wrap>
+        <b>Job Assigned : <span>{{list.AssignedEngineerName}}</span> </b>
+
+      </ion-item>
+    </ion-card>
+
+    <ion-card *ngIf="Usertype=='Planner'">
+      <ion-item text-wrap>
+        <b *ngIf="list.Approval_Status=='Denied'">Denial Reason : <span>{{list.Approval_Reason}}</span> </b>
+  
+        <b *ngIf="list.central_manager_approval_status=='Denied'">Denial Reason : <span>{{list.central_manager_approval_reason}}</span> </b>
+  
+        <b *ngIf="list.project_manager_approval_status=='Denied'">Denial Reason : <span>{{list.project_manager_approval_reason}}</span> </b>
+      </ion-item>
+    </ion-card>
+  </ion-card>
+
+</ion-content>

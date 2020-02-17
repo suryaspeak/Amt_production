@@ -1,0 +1,232 @@
+<!--
+  Generated template for the WorkorderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="offline">
+      
+      <ion-title>Work Order offline</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+      <ion-row>
+          <ion-col col-6 text-center>
+              <button ion-button (click)="view()" color="whit" style="color:#f6882d" full>View/Edit</button>
+          </ion-col>
+          <ion-col col-6 text-center>
+              <button ion-button color="selectbutton" full>Create</button>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <p style="background-color:#477fe8">Basic Info</p>
+  <ion-card>
+      <ion-item>
+          <ion-label floating>Task Description<span style="color:red">*</span></ion-label>
+          <ion-textarea name="taskDescription" [(ngModel)]="taskDescription"></ion-textarea>
+      </ion-item>
+  </ion-card>
+
+
+
+  <ion-card>
+
+        <ion-item>
+                <ion-label >Component code<span style="color:red">*</span></ion-label>
+                <ion-select [(ngModel)]="Componentcode" >
+                  <ion-option  *ngFor="let item of ComponentArr" value="{{item.ComponentCodeID}}" >{{item.Desc_Code}}</ion-option>
+                  
+                </ion-select>
+              </ion-item>
+
+
+
+      <!-- <ion-item>
+          <ion-label>Component code<span style="color:red">*</span></ion-label>
+          <select-searchable item-content [(ngModel)]="Componentcode" [items]="ComponentArr" itemValueField="ComponentCodeID"
+              itemTextField="Desc_Code" [canSearch]="true">
+          </select-searchable>
+      </ion-item> -->
+
+    </ion-card>
+
+
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Modifier code<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="Modifiercode" [items]="modifierCodeArr" itemValueField="ModifierID"
+              itemTextField="Desc_Code" [canSearch]="true">
+          </select-searchable> -->
+
+          <ion-select [(ngModel)]="Modifiercode" >
+            <ion-option  *ngFor="let item of modifierCodeArr" value="{{item.ModifierID}}" >{{item.Desc_Code}}</ion-option>
+            
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Task type<span style="color:red">*</span></ion-label>
+          <ion-select [(ngModel)]="tasktypeId" >
+            <ion-option  *ngFor="let item of taskTypearr" value="{{item.TaskTypeID}}" >{{item.Desc_Code}}</ion-option>
+            
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Task Counter<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="TaskCounter" [items]="ports" itemValueField="ApplicationCodeID"
+              itemTextField="Desc_Code" [canSearch]="true">
+          </select-searchable> -->
+
+          <ion-select [(ngModel)]="TaskCounter" >
+            <ion-option  *ngFor="let item of ports" value="{{item.Application_Code_ID}}" >{{item.Desc_Code}}</ion-option>
+            
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Task Status<span style="color:red">*</span></ion-label>
+          <ion-select [(ngModel)]="Task_Status_ID">
+              <ion-option *ngFor="let taskitem of taskDescarr" value="{{taskitem.Task_Status_ID}}">{{taskitem.Description}}</ion-option>
+
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Date Notified<span style="color:red">*</span></ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="datenotified"></ion-datetime>
+
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Estimated Total duration hrs<span style="color:red">*</span></ion-label>
+          <ion-input type="tel" [(ngModel)]="EstimatedTotaldurationhrs"></ion-input>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Estimated labour qty<span style="color:red">*</span></ion-label>
+          <ion-input type="tel" [(ngModel)]="Estimatedlabourqty"></ion-input>
+
+      </ion-item>
+  </ion-card>
+  <ion-card>
+      <ion-item>
+          <ion-label floating>Estimated labour hrs<span style="color:red">*</span></ion-label>
+          <ion-input type="tel" [(ngModel)]="Expected_Labor_Hours"></ion-input>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Raised By<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="raisedById" [items]="raisedBy" itemValueField="Employee_ID"
+              itemTextField="Desc_Code" [canSearch]="true">
+          </select-searchable>  -->
+
+          <ion-select [(ngModel)]="raisedById">
+            <ion-option *ngFor="let taskitem of raisedBy" value="{{taskitem.Employee_ID}}">{{taskitem.Desc_Code}}</ion-option>
+
+        </ion-select>
+      </ion-item>
+  </ion-card>
+
+
+
+
+
+  <p style="background-color:#477fe8">Feedback Info</p>
+
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Source<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="sourceId" [items]="sourceGetarr" itemValueField="Source_ID"
+              itemTextField="Description" [canSearch]="true">
+          </select-searchable> -->
+
+          <ion-select [(ngModel)]="sourceId" >
+            <ion-option  *ngFor="let item of sourceGetarr" value="{{item.Source_ID}}" >{{item.Description}}</ion-option>
+            
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Symptom<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="Symptom" [items]="symptomgetArr" itemValueField="Symptom_ID"
+              itemTextField="Description" [canSearch]="true">
+          </select-searchable> -->
+          <ion-select [(ngModel)]="Symptom" >
+            <ion-option  *ngFor="let item of symptomgetArr" value="{{item.Symptom_ID}}" >{{item.Description}}</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Cause<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="Cause" [items]="CauseArr" itemValueField="Cause_ID"
+              itemTextField="Description" [canSearch]="true">
+          </select-searchable> -->
+
+          <ion-select [(ngModel)]="Cause" >
+            <ion-option  *ngFor="let item of CauseArr" value="{{item.Cause_ID}}" >{{item.Description}}</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label>Job code<span style="color:red">*</span></ion-label>
+          <!-- <select-searchable item-content [(ngModel)]="JobCode" [items]="JobCodeArr" itemValueField="JobCodeID"
+              itemTextField="Desc_Code" [canSearch]="true">
+          </select-searchable> -->
+
+          <ion-select [(ngModel)]="JobCode" >
+            <ion-option  *ngFor="let item of JobCodeArr" value="{{item.JobCodeID}}" >{{item.Desc_Code}}</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item>
+          <ion-label floating>Repair description<span style="color:red">*</span></ion-label>
+          <ion-input type="text" [(ngModel)]="repairDesc"></ion-input>
+      </ion-item>
+  </ion-card>
+
+
+
+
+  <ion-buttons (click)="subMit()">
+      <button ion-button round id="but">
+          Submit
+      </button>
+  </ion-buttons>
+
+
+</ion-content>

@@ -1,0 +1,102 @@
+<!--
+  Generated template for the MajorcomponentfilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Major Components</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   
+    <ion-card>
+        <ion-item>
+            <ion-label >Site<span style="color:red">*</span></ion-label>
+            <ion-select [(ngModel)]="siteIdget">
+              <ion-option  *ngFor="let item of siteData" value="{{item.SiteId}}" (ionSelect)="onSiteChange(item.SiteId)">{{item.Site}}</ion-option>
+              
+            </ion-select>
+          </ion-item>
+    </ion-card>
+    <ion-card>
+        <ion-item >
+            <ion-label>Equipment</ion-label>
+                <ion-select  [(ngModel)]="EquipmentId" multiple="true">
+                  <ion-option  *ngFor="let item of equipment" value="{{item.EqpPlanId}}">{{item.EqpPlan}}</ion-option>
+                  
+                </ion-select>
+              </ion-item>
+        <!-- <ion-item>
+            <ion-label>Equipment<span style="color:red">*</span></ion-label>
+            <select-searchable
+                item-content
+                [(ngModel)]="EquipmentId"
+                [items]="equipment"
+                itemValueField="EqpPlanId"
+                itemTextField="EqpPlan"
+                [canSearch]="true"
+                [isMultiple]="true"
+             >
+            </select-searchable>
+        </ion-item> -->
+    </ion-card>
+    <ion-card>
+
+
+  
+      <ion-row>
+        <ion-col col-10>
+          <ion-input type="text" placeholder="Enter Component name*" [(ngModel)]="SearchValueCompontent"></ion-input>
+        </ion-col>
+        <ion-col col-2 text-center (click)="getComponent(SearchValue)">
+          <button ion-button icon-only color=dark>
+            <ion-icon name="search"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+   
+    <ion-list radio-group  (onChange)="datagetnewo(rmchecked)">
+     <div style="height:150px;overflow:scroll" *ngIf="booleamcom===true">
+      <ion-item *ngFor="let item of ComponentArr">
+        <ion-label>{{item.Desc_Code}}</ion-label>
+        <ion-radio value="{{item.ComponentCodeID}}" (ionSelect)="comselect(item.ComponentCodeID)"></ion-radio>
+      </ion-item>
+     </div>
+   
+    </ion-list>
+  </ion-card>
+    <ion-card>
+        <ion-item >
+            <ion-label>Event Status</ion-label>
+                <ion-select >
+                  <ion-option selected="true" >"YTS"</ion-option>
+                  
+                </ion-select>
+              </ion-item>
+     </ion-card>
+<ion-card *ngIf="Usertype!='Planner'">
+     <ion-item >
+        <ion-label>Approval Status</ion-label>
+            <ion-select [(ngModel)]="Status" >
+
+
+
+
+
+              <ion-option   value="Approve">Approve</ion-option>
+              <ion-option   value="Pending">Pending</ion-option>
+              <ion-option   value="Denied">Denied</ion-option>
+              <ion-option   value="Resent">Resent</ion-option>
+            </ion-select>
+          </ion-item>
+ </ion-card>
+     <div text-center>
+        <button ion-button color="secondary" (click)="sumMit()">Submit</button>
+     </div>
+</ion-content>

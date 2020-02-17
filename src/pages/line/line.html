@@ -1,0 +1,124 @@
+<ion-header>
+
+  <ion-navbar color='header'>
+      <ion-buttons right>
+          <button ion-button icon-only color="light" (click)="openPopover($event)">
+              <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+           
+        </button>
+    <ion-title *ngIf="!header">Line Chart View</ion-title>
+    <ion-title *ngIf="header">{{header}}</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+
+
+<ion-content>
+    <!-- <ion-row radio-group [(ngModel)]="month" (ionChange)="LoginRemCheck(rmchecked)">
+            
+        <ion-col>
+          <ion-item>
+            <ion-label>Last Month</ion-label>
+            <ion-radio value="three"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+            <ion-item>
+                <ion-label>MTD</ion-label>
+                <ion-radio value="six"></ion-radio>
+              </ion-item>
+        </ion-col>
+     
+      </ion-row> -->
+
+              <ion-card >
+                <ion-card-header>
+              <b>MTBF</b>  
+                </ion-card-header>
+                <ion-card-content>
+                    <div class="temp"></div>
+                  <canvas #MTBF></canvas>
+                </ion-card-content>
+              </ion-card>
+    
+              <ion-card >
+                  <ion-card-header>
+                    <b>Physical Availability </b>  
+                  </ion-card-header>
+                  <ion-card-content>
+                      <div class="temp"></div>
+                    <canvas #PAvailability></canvas>
+                  </ion-card-content>
+                </ion-card>
+
+                <ion-card >
+                    <ion-card-header>
+                      <b>Utilization</b>  
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="temp"></div>
+                      <canvas #Utilization></canvas>
+                    </ion-card-content>
+                  </ion-card>
+                
+                <ion-card >
+                    <ion-card-header>
+                   
+                       <b>Service Accuracy </b> 
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="temp"></div>
+                      <canvas #SAccuracy></canvas>
+                    </ion-card-content>
+                  </ion-card>
+
+
+
+                  <!-- fjdhksfklsd -->
+
+
+
+              <ion-card >
+                <ion-card-header>
+              <b>MTBS</b>  
+                </ion-card-header>
+                <ion-card-content>
+                    <div class="temp"></div>
+                  <canvas #MTBS></canvas>
+                </ion-card-content>
+              </ion-card>
+    
+              <ion-card >
+                  <ion-card-header>
+                   <b>MTTR</b>  
+                  </ion-card-header>
+                  <ion-card-content>
+                      <div class="temp"></div>
+                    <canvas #MTTR></canvas>
+                  </ion-card-content>
+                </ion-card>
+
+                <ion-card >
+                    <ion-card-header>
+                       <b>MTTR(F)</b> 
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="temp"></div>
+                      <canvas #MTTRF></canvas>
+                    </ion-card-content>
+                  </ion-card>
+                
+                <ion-card >
+                    <ion-card-header>
+                     <b>Scheduled Or Planned Downtime</b> 
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="temp"></div>
+                      <canvas #scheduledopnan></canvas>
+                    </ion-card-content>
+                  </ion-card>
+</ion-content>

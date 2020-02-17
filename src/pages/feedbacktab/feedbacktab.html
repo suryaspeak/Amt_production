@@ -1,0 +1,68 @@
+<!--
+  Generated template for the FeedbacktabPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="yellow">
+    <ion-title>Create Feedback Tab</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-grid>
+        <ion-row>
+           <ion-col col-6 text-center >
+            <button (click)="basic()" ion-button color="light" outline>Basic Tab</button>
+      </ion-col>
+      <ion-col col-6 text-center >
+        <button ion-button color="light" outline>Feedback Tab</button>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+    <ion-card>
+        <ion-item>
+            <ion-label>Symptom</ion-label>
+                <ion-select [(ngModel)]="Symptom">
+                  <ion-option value="yts">YTS</ion-option>
+                  <ion-option value="ip">IP</ion-option>
+                  <ion-option value="c">C</ion-option>
+                </ion-select>
+              </ion-item>
+      </ion-card>
+      <ion-card>
+          <ion-item>
+              <ion-label>Cause</ion-label>
+                  <ion-select [(ngModel)]="Cause">
+                    <ion-option value="yts">YTS</ion-option>
+                    <ion-option value="ip">IP</ion-option>
+                    <ion-option value="c">C</ion-option>
+                  </ion-select>
+                </ion-item>
+        </ion-card>
+        <ion-card>
+            <ion-item>
+                <ion-label>Job Code</ion-label>
+                    <ion-select [(ngModel)]="Job">
+                      <ion-option value="yts">YTS</ion-option>
+                      <ion-option value="ip">IP</ion-option>
+                      <ion-option value="c">C</ion-option>
+                    </ion-select>
+                  </ion-item>
+          </ion-card>
+          <ion-card>
+              <ion-item>
+                  <ion-label>Repair Descriptions</ion-label>
+                      <ion-textarea></ion-textarea>
+                    </ion-item>
+            </ion-card>
+<ion-buttons >
+  <button ion-button round (click)="Task()">
+      Submit
+  </button>
+</ion-buttons>
+</ion-content>

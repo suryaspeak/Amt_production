@@ -1,0 +1,493 @@
+<!--
+  Generated template for the TablefinincePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-buttons right>
+          <button ion-button icon-only color="light" (click)="openPopover($event)">
+              <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title *ngIf="name">{{name}}</ion-title>
+    <ion-title *ngIf="!name">Table View ({{tableViewName}})</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content >
+
+    <div *ngIf="!tabletypecheck">
+        <h3 text-center>{{branch}}</h3>
+   
+<ion-row>
+  <ion-col col-3 text-center>
+       Name
+  </ion-col>
+  <ion-col col-1.5 *ngFor="let item of month" text-center id="subCol">
+      {{item.substr(0, 3)}}
+ </ion-col>
+</ion-row>
+<ion-row>
+ <ion-col col-3 text-center>
+    MARC BILLING(Sales)
+</ion-col>
+<ion-col col-1.5 *ngFor="let item of SalesArr" text-center id="subCol">
+    {{item}}
+</ion-col>
+</ion-row>
+<ion-row>
+
+
+<ion-col col-3 text-center>
+    Managment Fee(Sales)
+</ion-col>
+<ion-col col-1.5 *ngFor="let item of management_feeArr" text-center id="subCol">
+    {{item}}
+</ion-col>
+</ion-row>
+<ion-row>
+
+
+<ion-col col-3 text-center>
+    Cost of Sales
+</ion-col>
+<ion-col col-1.5 *ngFor="let item of cost_of_saleArr" text-center id="subCol">
+    {{item}}
+</ion-col>
+</ion-row>
+<ion-row>
+<ion-col col-3 text-center>
+    Gross Margin
+</ion-col>
+<ion-col col-1.5 *ngFor="let item of gross_margin" text-center id="subCol">
+    {{item}}
+</ion-col>
+</ion-row>
+
+<ion-row>
+    <ion-col col-3 text-center>
+        Gross Margin(%)
+    </ion-col>
+    <ion-col col-1.5 *ngFor="let item of gross_margin_percent" text-center id="subCol">
+        {{item}}
+    </ion-col>
+</ion-row>
+
+
+<ion-row>
+    <ion-col col-3 text-center>
+        Indircect expense
+    </ion-col>
+    <ion-col col-1.5 *ngFor="let item of indirect_expense" text-center id="subCol">
+        {{item}}
+    </ion-col>
+</ion-row>
+
+
+<ion-row>
+    <ion-col col-3 text-center>
+        Net Margin
+    </ion-col>
+    <ion-col col-1.5 *ngFor="let item of net_margin" text-center id="subCol">
+        {{item}}
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col col-3 text-center>
+        Net Margin(%)
+    </ion-col>
+    <ion-col col-1.5 *ngFor="let item of net_margin_percent" text-center id="subCol">
+        {{item}}
+    </ion-col>
+</ion-row>
+    </div>
+
+<div *ngIf="tabletypecheck">
+    <p text-center><b>{{branch}}</b></p>
+<ion-row >
+   <ion-col col-7 >
+      <b>Sales</b> 
+        <ion-row col-12 >
+             <ion-col col-12 >
+                <b>MARC BILLING</b> 
+             </ion-col>
+             <ion-col col-12 >
+                <b>Managment Fee</b> 
+              </ion-col>
+        </ion-row>
+   </ion-col>
+  <ion-col col-5>
+      <ion-row col-12>
+        
+          <ion-col col-12 text-center>
+           {{marc_billing}}
+          </ion-col>
+          <ion-col col-12 text-center>
+              {{management_feeArr}}
+           </ion-col>
+     </ion-row>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col col-7 >
+   <b>Cost of Sales</b> 
+  </ion-col>
+  <ion-col col-5 text-center>
+     {{SalesArr}}
+  </ion-col>
+</ion-row>
+
+<ion-row>
+    <ion-col col-7>
+     <b>Gross Margin</b> 
+    </ion-col>
+    <ion-col col-5 text-center>
+      {{gross_margin}}
+    </ion-col>
+  </ion-row>
+
+<ion-row>
+      <ion-col col-7>
+       <b>Managment Fee</b> 
+      </ion-col>
+      <ion-col col-5 text-center>
+         {{management_feeArr}}
+      </ion-col>
+    </ion-row> 
+  <ion-row>
+      <ion-col col-7 >
+         <b>Gross Margin (%)</b> 
+      </ion-col>
+      <ion-col col-5 text-center>
+         {{gross_margin_percent}}
+      </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col col-7 >
+        <b>Indircect Expence</b> 
+      </ion-col>
+      <ion-col col-5 text-center>
+         {{indirect_expense}}
+      </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col col-7 >
+        <b>Net Margin</b> 
+      </ion-col>
+      <ion-col col-5 text-center>
+         {{net_margin}}
+      </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col col-7 >
+       <b>Net Margin (%)</b>  
+      </ion-col>
+      <ion-col col-5 text-center>
+         {{net_margin_percent}}
+      </ion-col>
+  </ion-row>
+</div> 
+
+
+
+
+<!-- <div *ngIf="!tabletypecheck">
+
+
+ <p text-center><b>{{branch}}</b></p>
+ <ion-row *ngFor="let d of data">
+   <ion-col col-8><h3>Sales</h3> </ion-col>
+   <ion-col col-4 text-center (click)="toggleDetails(d,'one')"> <span><u>View</u></span></ion-col>
+   <ion-col col-12 *ngIf="d.showDetails">
+  
+
+   <ion-row>
+      <ion-row>
+         <ion-col col-12>MARC BILLING</ion-col>
+      </ion-row>
+     <ion-row col-12 text-center>
+        <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+           
+     </ion-row>
+     <ion-row col-12 text-center>
+         <ion-col col-2  *ngFor="let item of SalesArr" >{{item}}</ion-col>
+       
+     </ion-row>
+     
+    </ion-row>
+    <ion-row>
+        <ion-row>
+           <ion-col col-12>Managment Fee</ion-col>
+        </ion-row>
+       <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+           
+       </ion-row>
+       <ion-row col-12 text-center>
+          <ion-col col-2 *ngFor="let item of management_feeArr">{{item}}</ion-col>
+           
+       </ion-row>
+       
+      </ion-row>
+   </ion-col>
+ </ion-row>
+
+  
+  <ion-row *ngFor="let d of data2">
+      <ion-col col-8><h3>Cost of Sales</h3> </ion-col>
+     
+      <ion-col col-4 text-center (click)="toggleDetails(d,'two')"> <span><u>View</u></span></ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of cost_of_saleArr" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let d of data3">
+      <ion-col col-8><h3>Gross Margin</h3> </ion-col>
+     
+      <ion-col col-4 text-center (click)="toggleDetails(d,'three')"> <span><u>View</u></span></ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of gross_margin" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let d of data4">
+      <ion-col col-8><h3>Gross Margin %</h3> </ion-col>
+     
+      <ion-col col-4 text-center (click)="toggleDetails(d,'four')"> <span><u>View</u></span></ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of gross_margin_percent" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let d of data5">
+      <ion-col col-8><h3>Indircect expense</h3> </ion-col>
+          <ion-col col-4 text-center (click)="toggleDetails(d,'five')"> <span><u>View</u></span></ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of indirect_expense" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row>
+
+ <ion-row *ngFor="let d of data6">
+      <ion-col col-8><h3>Indircect expense</h3> </ion-col>
+      <ion-col col-4>  <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d,'six')"></ion-icon> </ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of cost_of_saleArr" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row> 
+
+  <ion-row *ngFor="let d of data7">
+      <ion-col col-8><h3>Net Margin</h3> </ion-col>
+      <ion-col col-4 text-center (click)="toggleDetails(d,'seven')"> <span><u>View</u></span></ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of net_margin" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let d of data8">
+      <ion-col col-8><h3>Net Margin %</h3> </ion-col>
+       <ion-col col-4 text-center (click)="toggleDetails(d,'eight')"> <span><u>View</u></span></ion-col>
+      <ion-col col-12 *ngIf="d.showDetails">
+     
+   
+
+         
+        <ion-row col-12 text-center>
+           <ion-col col-2 *ngFor="let item of month">{{item.substr(0, 3)}}</ion-col>
+              
+        </ion-row>
+        <ion-row col-12 text-center>
+            <ion-col col-2  *ngFor="let item of net_margin_percent" >{{item}}</ion-col>
+          
+        </ion-row>
+        
+   
+   
+      </ion-col>
+  </ion-row>
+
+</div>
+  <div *ngIf="tabletypecheck">
+      <p text-center><b>{{branch}}</b></p>
+  <ion-row >
+     <ion-col col-7 >
+        <b>Sales</b> 
+          <ion-row col-12 >
+               <ion-col col-12 >
+                  <b>MARC BILLING</b> 
+               </ion-col>
+               <ion-col col-12 >
+                  <b>Managment Fee</b> 
+                </ion-col>
+          </ion-row>
+     </ion-col>
+    <ion-col col-5>
+        <ion-row col-12>
+          .
+            <ion-col col-12 text-center>
+             {{marc_billing}}
+            </ion-col>
+            <ion-col col-12 text-center>
+                {{management_feeArr}}
+             </ion-col>
+       </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-7 >
+     <b>Cost of Sales</b> 
+    </ion-col>
+    <ion-col col-5 text-center>
+       {{SalesArr}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col col-7>
+       <b>Gross Margin</b> 
+      </ion-col>
+      <ion-col col-5 text-center>
+        {{gross_margin}}
+      </ion-col>
+    </ion-row>
+
+ <ion-row>
+        <ion-col col-7>
+         <b>Managment Fee</b> 
+        </ion-col>
+        <ion-col col-5 text-center>
+           {{management_feeArr}}
+        </ion-col>
+      </ion-row> 
+    <ion-row>
+        <ion-col col-7 >
+           <b>Gross Margin (%)</b> 
+        </ion-col>
+        <ion-col col-5 text-center>
+           {{gross_margin_percent}}
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-7 >
+          <b>Indircect Expence</b> 
+        </ion-col>
+        <ion-col col-5 text-center>
+           {{indirect_expense}}
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-7 >
+          <b>Net Margin</b> 
+        </ion-col>
+        <ion-col col-5 text-center>
+           {{net_margin}}
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-7 >
+         <b>Net Margin (%)</b>  
+        </ion-col>
+        <ion-col col-5 text-center>
+           {{net_margin_percent}}
+        </ion-col>
+    </ion-row>
+  </div> -->
+</ion-content>

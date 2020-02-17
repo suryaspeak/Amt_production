@@ -1,0 +1,103 @@
+page-workorder {
+  #df{
+      border: 1px solid rgb(201, 198, 198) ;
+  }
+
+#high{
+    //  border: 2px rgb(185, 183, 183) solid;
+  
+ }
+ .item-input .label-md, .item-select .label-md, .item-datetime .label-md{
+     color:black;
+ }
+ .label-md{
+    color:black;
+ }
+ .item-md{
+    background-color: rgb(237, 241, 241) !important;
+    //  background-color: #a5a19e !important;
+    // 
+ }
+ .col{
+    padding-left: 0px;
+    padding-right: 0px;
+ }
+ .card-md{
+    // background-color: #fabe91 !important;
+ }
+ ion-content{
+    // background-color: #beb8b8;
+    // background-image: linear-gradient(315deg, #a89f9f 0%, #dfd7d7 74%);
+  
+ }
+ // ion-card{
+ //     opacity: 0.9;
+ // }
+ 
+ .item.item-md .checkbox-md {
+    position: static;
+    display: block;
+    // margin: 9px 170px 9px 4px;
+ }
+ 
+ #but {
+   background-color: #32db64;
+ }
+ ion-label[fixed]{
+ min-width: 170px;
+ }
+ .news
+ .label-md{
+ text-align: end;
+ }
+ .select-md .select-icon .select-icon-inner{
+    color:#3856a6;
+ }
+ .select-searchable-md .select-searchable-icon-inner{
+    color:#3856a6;
+ }
+ p{
+    text-align: center;
+ }
+ .radio-md .radio-checked{
+    border-color:black !important;
+ }
+ .radio-md .radio-inner{
+    background-color:black !important;
+ }
+ .item-radio-checked.item-md ion-label{
+    color:black;
+ }
+    .button-round-md {
+        border-radius: 64px;
+        padding: 0 2.6rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-left: 34%;
+    }
+    p{
+        // border:1px #ffbb00 solid;
+        padding:10px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+    }
+    [col-10]{
+        height:4.9rem !important;
+    }
+    .input-cover{
+        height: 50px;
+    }
+    .text-input-md{
+        margin: 17px 8px;
+    }
+    .button[icon-only]{
+        height: 2.9em;
+    }
+    .subha .label-md{
+        margin:0px;
+    }
+    .item-md{
+        padding-left: 0px;
+    }
+}

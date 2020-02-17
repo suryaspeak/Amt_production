@@ -1,0 +1,259 @@
+<!--
+  Generated template for the EditeventlastPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Task Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let item of arrget ;let i= index">
+    <!-- <p>{{item}}</p> -->
+    <h1 text-center>Task {{i+1}}</h1>
+
+    <ion-row>
+      <ion-col col-6>
+        Task Description<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-input type="text" [(ngModel)]="item.task.Description"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        Component Code <span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+
+        <ion-select [(ngModel)]="item.task.Component_Code_ID" disabled>
+          <ion-option *ngFor="let itemcom of ComponentArr" value="{{itemcom.ComponentCodeID}}">{{itemcom.Desc_Code}}
+          </ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        Modifier Code<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+
+        <ion-select [(ngModel)]="item.task.Modifier_ID" disabled>
+          <ion-option *ngFor="let itemmod of modifierCodeArr" value="{{itemmod.ModifierID}}">{{itemmod.Desc_Code}}
+          </ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        Task Type <span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+
+        <ion-select [(ngModel)]="item.task.Task_Type_ID">
+          <ion-option *ngFor="let taskitem of taskTypearr" value="{{taskitem.TaskTypeID}}" disabled>
+            {{taskitem.Desc_Code}}</ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col col-6>
+        Task Counter<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+
+        <ion-select [(ngModel)]="item.task.Application_Code_ID" disabled>
+          <ion-option *ngFor="let task of taskcounterArr" value="{{task.ApplicationCodeID}}">{{task.Desc_Code}}
+          </ion-option>
+
+        </ion-select>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        Task Status<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+        <ion-select [(ngModel)]="item.task.Task_Status_ID">
+          <ion-option *ngFor="let taskitem of taskDescarr" value="{{taskitem.Task_Status_ID}}">{{taskitem.Description}}
+          </ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col col-6>
+        Source<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-select [(ngModel)]="item.task.Source_ID">
+          <ion-option *ngFor="let itemsource of sourceGetarr" value="{{itemsource.Source_ID}}">
+            {{itemsource.Description}}</ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        Date Notified<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+        <ion-item id="high">
+          <ion-label>Down Date<span style="color:red">*</span></ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.task.datenew">
+          </ion-datetime>
+        </ion-item>
+        <!-- <ion-input type="text" [(ngModel)]="item.task.Date_Notified"></ion-input> -->
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        Expected Duration<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-input type="text" [(ngModel)]="item.task.Expected_Duration"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        Expected Labour Hours<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-input type="text" [(ngModel)]="item.task.Expected_Labor_Hours"></ion-input>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col col-6>
+        Symptom<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+
+        <ion-select [(ngModel)]="item.task.Symptom_ID">
+          <ion-option *ngFor="let itemsymptom of symptomgetArr" value="{{itemsymptom.Symptom_ID}}">
+            {{itemsymptom.Description}}</ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        Cause<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-select [(ngModel)]="item.task.Cause_ID">
+          <ion-option *ngFor="let itemcause of CauseArr" value="{{itemcause.Cause_ID}}">{{itemcause.Description}}
+          </ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        Job Code<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-select [(ngModel)]="item.task_relation[0].taskOperation.Job_Code_Id">
+          <ion-option *ngFor="let itemnew of JobCodeArr" value="{{itemnew.JobCodeID}}">{{itemnew.Description}}
+          </ion-option>
+
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        Repair Notes<span style="color:red">*</span>
+
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-input type="text" [(ngModel)]="item.task.Repair_Notes"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      
+         
+          <p style="text-align: center;
+          background-color: #3856a6;
+          color: white;
+          font-size: 21px;">Parts</p>
+     
+      <ion-list>
+        <ion-row *ngFor="let listitem of item.task_relation[0].taskOperationParts" (click)="itemSelected(item)" padding>
+          <ion-col col-8>
+             
+             {{listitem.amtsos}} - {{listitem.Part_Number}} - {{ listitem.Part_Description}}
+          </ion-col>
+       
+          <ion-col col-4>
+              {{listitem.Planned_Qty}}
+            </ion-col>
+        </ion-row>
+        <div *ngIf="item.task_relation[0].taskOperationParts.length=='0'">
+          <p text-center>Parts Not found </p> 
+        </div>
+
+     
+        <!-- <button ion-item *ngFor="let listitem of item.task_relation[0].taskOperationParts" (click)="itemSelected(item)">
+          {{ listitem.Part_Description}}
+        </button>   -->
+      </ion-list>
+    </ion-row>
+
+
+  </div>
+
+  <div text-center>
+    <ion-buttons (click)="submit()">
+      <button ion-button round color="secondary">
+        Submit
+      </button>
+    </ion-buttons>
+  </div>
+</ion-content>

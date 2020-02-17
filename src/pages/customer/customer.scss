@@ -1,0 +1,63 @@
+page-customer {
+    ion-content{
+        // background-image: url(../assets/imgs/back.jpg);
+        background-size: cover;
+        object-fit: contain;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        
+    }
+   p{
+        white-space: normal !important;
+        max-width: none !important;
+        width: 100%;
+    }
+    .it{
+        margin-top: 100%;
+        opacity: 0.9;
+    }
+
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md{
+        color:black;
+   }
+   .label-md{
+       color:black;
+   }
+   .item-md{
+       background-color: rgb(237, 241, 241) !important;
+       //  background-color: #a5a19e !important;
+       // 
+   }
+   .col{
+       padding-left: 0px;
+       padding-right: 0px;
+   }
+   .card-md{
+       // background-color: #fabe91 !important;
+   }
+   ion-content{
+       // background-color: #beb8b8;
+       // background-image: linear-gradient(315deg, #a89f9f 0%, #dfd7d7 74%);
+     
+   }
+   // ion-card{
+   //     opacity: 0.9;
+   // }
+
+   .item.item-md .checkbox-md {
+       position: static;
+       display: block;
+       // margin: 9px 170px 9px 4px;
+   }
+
+   #but {
+  background-color: #3ea949;
+}
+ion-label[fixed]{
+   min-width: 170px;
+}
+.news
+.label-md{
+   text-align: end;
+}
+}

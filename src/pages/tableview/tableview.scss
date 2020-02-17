@@ -1,0 +1,112 @@
+page-tableview {
+    .button-md{
+        background-color: transparent;
+        color:rgb(32, 182, 40);
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    
+ion-label {
+    white-space: normal !important;
+    max-width: none !important;
+     width: 50%;
+     font-size: 12px;
+   }
+//   ion-label{
+//       font-size: 12px;
+//   }
+   ion-row{
+       border: 1px solid grey;
+   }
+  ion-list{
+      border: 1px solid grey;
+      margin-top: 14px;
+  }
+p
+{
+    padding: 1px;
+    margin-bottom: 1px;
+    padding-top: 0.5px;
+    margin-top: 0px;
+    background-color:#f6882d;
+    color: white;
+    padding: 5px;
+}
+ion-item[isOdd='true'] > div.item-content{
+    background-color: yellow !important;
+}
+
+ion-item[isOdd='false'] > div.item-content{
+    background-color: orange !important;
+}
+#bac:nth-child(even) {background: rgb(130, 176, 214)}
+#bac:nth-child(odd) {background: rgb(177, 174, 174)}
+[col-2]{
+    border:1px solid gainsboro;
+}
+.branchRow{
+    background-color: #caaa6ea8;
+    
+}
+.siteRow{
+    background-color: rgba(255, 99, 132, 0.2);
+}
+.fleetRow{
+    color:rgb(78, 75, 75);
+    background-color: rgba(54, 162, 235, 0.2);
+}
+.equipmentRow{
+    // 'rgba(255, 99, 132, 0.2)',
+    // 'rgba(54, 162, 235, 0.2)',
+    // 'rgba(255, 206, 86, 0.2)',
+    // 'rgb(153, 224, 255)',
+    // 'rgb(179, 255, 238)',
+    // 'rgb(255, 228, 241)',
+    color:rgb(31, 30, 30);
+    background-color: rgba(252, 255, 99, 0.2);
+}
+ion-content{
+    padding-bottom: 20px !important;
+}
+#rw{
+    width: 100%;
+    background-color:rgb(255, 255, 255) !important;
+    margin-bottom: 2px;
+}
+#newap{
+    margin-top:10px;
+}
+#tbl{
+    margin-top:50%
+}
+#tbll{
+    margin-top:50%
+}
+@media (min-width: 760px) and (max-width: 1280px) {
+  #rw{
+      width: 100%;
+  }
+    //CSS
+#tbl{
+    margin-top:21%
+}
+#tbll{
+    margin-top:21%
+}
+    
+  }
+  .item-md {
+    padding-left: 1px;
+    padding-right: 1px;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+    color: #000;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+}

@@ -1,0 +1,69 @@
+page-inspections {
+#tableborder{
+   //  margin-top: 10%;
+    background-color: rgb(133, 118, 118);
+    border:1px rgb(58, 53, 53) solid;
+    color:white;
+}
+
+
+
+ .item-input .label-md, .item-select .label-md, .item-datetime .label-md{
+     color:black;
+ }
+ .label-md{
+    color:black;
+ }
+ .item-md{
+    background-color: rgb(237, 241, 241) !important;
+    //  background-color: #a5a19e !important;
+    // 
+ }
+ .col{
+    padding-left: 0px;
+    padding-right: 0px;
+ }
+ 
+ 
+ .item.item-md .checkbox-md {
+    position: static;
+    display: block;
+    // margin: 9px 170px 9px 4px;
+ }
+ 
+ #but {
+ background-color: #3ea949;
+ }
+ ion-label[fixed]{
+ min-width: 170px;
+ }
+ .news
+ .label-md{
+ text-align: end;
+ }
+ .select-md .select-icon .select-icon-inner{
+    color:#3856a6;
+ }
+ .select-searchable-md .select-searchable-icon-inner{
+    color:#3856a6;
+ }
+ p{
+    text-align: center;
+ }
+ .radio-md .radio-checked{
+    border-color:black !important;
+ }
+ .radio-md .radio-inner{
+    background-color:black !important;
+ }
+ .item-radio-checked.item-md ion-label{
+    color:black;
+ }
+ p{
+    margin-bottom: 0px;
+    padding: 5px;
+ }
+ .tableLine{
+    border-bottom: 1px dotted lightgray;
+ }
+}

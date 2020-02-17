@@ -1,0 +1,232 @@
+<!--
+  Generated template for the EdittaskPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="offline">
+    <ion-title>Edit Task    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+
+    <h4 text-center style="background-color:#477fe8;color:white">Basic Tab</h4>  
+
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Site<span style="color:red">*</span></ion-label>
+   
+      <ion-select [(ngModel)]="idGet.Site_Id"  disabled>
+        <ion-option *ngFor="let item of siteOfflineData" value="{{item.site_id}}" (ionSelect)="onSiteChange(item.site_id)">{{item.site}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label disabled>Equipment:   {{idGet.EqpPlan}}</ion-label>
+     
+    </ion-item>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Description<span style="color:red">*</span></ion-label>
+      <ion-textarea name="description" [(ngModel)]="idGet.Description"></ion-textarea>
+    </ion-item>
+
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Component code<span style="color:red">*</span></ion-label>
+      <ion-select [(ngModel)]="idGet.Component_Code_ID" disabled>
+        <ion-option *ngFor="let item of ComponentArr" value="{{item.ComponentCodeID}}">{{item.Desc_Code}}</ion-option>
+
+      </ion-select>
+   
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Modifier code<span style="color:red">*</span></ion-label>
+    
+      <ion-select [(ngModel)]="idGet.Modifier_ID" disabled>
+        <ion-option *ngFor="let item of modifierCodeArr" value="{{item.ModifierID}}">{{item.Desc_Code}}</ion-option>
+
+      </ion-select>
+
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Task type<span style="color:red">*</span></ion-label>
+   
+      <ion-select [(ngModel)]="idGet.Task_Type_ID" disabled>
+        <ion-option *ngFor="let item of taskTypearr" value="{{item.TaskTypeID}}">{{item.Desc_Code}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label>Task Counter<span style="color:red">*</span></ion-label>
+      <ion-select [(ngModel)]="Application_Code_ID"  disabled>
+        <ion-option *ngFor="let item of taskcounter" value="{{item.Application_Code_ID}}">{{item.Desc_Code}}</ion-option>
+      </ion-select>
+    </ion-item>
+     
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Priority<span style="color:red">*</span></ion-label>
+      <ion-select [(ngModel)]="idGet.Priority_ID">
+        <ion-option *ngFor="let item of priorityGet" value="{{item.Priority_ID}}">{{item.Description}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+
+    <ion-item>
+      <ion-label>Date Notified</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="Date_Notified"></ion-datetime>
+    </ion-item>
+  </ion-card>
+
+  <!-- <ion-card>
+    <ion-item>
+      <ion-label>Status<span style="color:red">*</span></ion-label>
+      <ion-select [(ngModel)]="Task_Status_ID">
+        <ion-option *ngFor="let item of Statusarr" value="{{item.Task_Status_ID}}">{{item.Description}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-card> -->
+  <ion-card>
+    <ion-item>
+      <ion-label>Source<span style="color:red">*</span></ion-label>
+         <ion-select [(ngModel)]="idGet.Source_ID">
+        <ion-option *ngFor="let item of sourceGetarr" value="{{item.Source_ID}}">{{item.Description}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Raised By<span style="color:red">*</span></ion-label>
+      <ion-select [(ngModel)]="idGet.RaisedByID">
+        <ion-option *ngFor="let item of raisedBy" value="{{item.Employee_ID}}">{{item.Desc_Code}}</ion-option>
+
+      </ion-select>
+     
+    </ion-item>
+  </ion-card>
+     <h4 text-center style="background-color:#477fe8;color:white">Operations</h4>  
+
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Operations<span style="color:red">*</span></ion-label>
+      <ion-input type="text" [(ngModel)]="idGet.all_task_data[0].taskOperation.Task_Operation"></ion-input>
+    </ion-item>
+  </ion-card>
+  <!-- <ion-card>
+    <ion-item>
+      <ion-label>Attchment</ion-label>
+      <ion-input type="file" value=""></ion-input>
+    </ion-item>
+  </ion-card> -->
+  <ion-card>
+    <ion-item>
+      <ion-label>Estimated Total Durations</ion-label>
+      <ion-input type="text" [(ngModel)]="idGet.Expected_Duration"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Estimated Labour Qty<span style="color:red">*</span></ion-label>
+      <ion-input type="text" [(ngModel)]="idGet.all_task_data[0].taskOperationLabour[0].Labour_Qty"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Estimated Labour Hrs<span style="color:red">*</span></ion-label>
+      <ion-input type="text" [(ngModel)]="idGet.Expected_Labor_Hours"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label>WorkOrder Number</ion-label>
+      <ion-input type="text" disabled [(ngModel)]="idGet.Work_Order"></ion-input>
+    </ion-item>
+  </ion-card>
+  <h4 text-center style="background-color:#477fe8;color:white">Feedback</h4>  
+  <ion-card>
+    <ion-item>
+      <ion-label>Symptom<span style="color:red">*</span></ion-label>
+
+      <ion-select [(ngModel)]="idGet.Symptom_ID">
+        <ion-option *ngFor="let item of symptomgetArr" value="{{item.Symptom_ID}}">{{item.Description}}</ion-option>
+
+      </ion-select>
+
+
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Cause<span style="color:red">*</span></ion-label>
+
+      <ion-select [(ngModel)]="idGet.Cause_ID">
+        <ion-option *ngFor="let item of CauseArr" value="{{item.Cause_ID}}">{{item.Description}}</ion-option>
+
+      </ion-select>
+
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Job code<span style="color:red">*</span></ion-label>
+
+
+      <ion-select [(ngModel)]="idGet.all_task_data[0].taskOperation.Job_Code_Id">
+        <ion-option *ngFor="let item of JobCodeArr" value="{{item.JobCodeID}}">{{item.Desc_Code}}</ion-option>
+
+      </ion-select>
+
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label floating>Repair description</ion-label>
+      <ion-input type="text" [(ngModel)]="idGet.Repair_Notes"></ion-input>
+    </ion-item>
+  </ion-card>
+ 
+
+
+  <div text-center>
+    
+    <ion-buttons (click)="submit()"  color="secondary">
+      <button ion-button round color="secondary">
+        Submit
+      </button>
+    </ion-buttons>
+
+  </div>
+</ion-content>

@@ -1,0 +1,91 @@
+<!--
+  Generated template for the EventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="offline">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <!-- <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button> -->
+      <ion-title>Event Offline</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <p text-center><b>NOTE:</b> 7 days data will show in OfflineMode</p>
+
+    <ion-row>
+       <ion-col col-6 text-center >
+        <button  ion-button color="selectbutton" full>View / Edit</button>
+  </ion-col>
+  <ion-col col-6 text-center >
+    <button (click)="add()" ion-button color="whit" style="color:#f6882d" full>Create</button>
+  </ion-col>
+</ion-row>
+
+
+<!-- <b> <p style="color:red" text-center>Last 7 days data only in offline</p></b>  -->
+<ion-card>
+    <ion-item>
+        <ion-label >Site<span style="color:red">*</span></ion-label>
+        <ion-select [(ngModel)]="siteIdget">
+          <ion-option  *ngFor="let item of siteOfflineData" value="{{item.site_id}}" (ionSelect)="onSiteChange(item.site_id)">{{item.site}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+</ion-card>
+<ion-card>
+    <ion-item>
+        <ion-label>Equipment</ion-label>
+
+        <ion-select [(ngModel)]="equipmentarr" multiple="true">
+          <ion-option  *ngFor="let item of equptArr" value="{{item.eqp_id}}">{{item.eqp_name}}</ion-option> 
+        </ion-select>
+
+    </ion-item>
+</ion-card>
+<ion-card>
+    <ion-item >
+        <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="Status" >
+              <ion-option  value="2">in Progress</ion-option>
+              <ion-option   value="1">Yet To Start</ion-option>
+              
+            </ion-select>
+          </ion-item>
+ </ion-card>
+ <!-- <ion-card class="news">
+    <ion-item >
+        <ion-label>Customer raise BD</ion-label>
+        <ion-checkbox color="dark"  [(ngModel)]="customerbd"></ion-checkbox>
+   
+          </ion-item>
+ </ion-card> -->
+ 
+  
+         <ion-buttons text-center  (click)="view()" >
+            <button ion-button round id="but">
+              Submit
+            </button>
+          </ion-buttons>
+
+
+
+          <ion-list>
+            <ion-item *ngFor="let item of Offlinelist" (click)="editEvent(item)">
+           
+              <h2>Equipment: {{item.EqpuName}}</h2>
+              <h3>Event Description: {{item.Event_Description}}</h3>
+              <p item-end style="background-color:rgb(122, 40, 40);padding:3px;color:white">Edit</p>
+            </ion-item>
+          </ion-list>      
+</ion-content>
+

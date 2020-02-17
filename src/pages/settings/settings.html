@@ -1,0 +1,82 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+   
+    <ion-item>
+      My Profile
+      <button ion-button outline item-end icon-start (click)="profile()">
+        <ion-icon name="contacts"></ion-icon>
+        
+        Profile
+      </button>
+    </ion-item>
+  </ion-card>
+
+  <!-- <ion-card>
+   
+   
+    <ion-item (click)="download()">
+      Download AMT data
+      <button ion-button outline item-end icon-start>
+        <ion-icon name="download"></ion-icon>
+        Download
+      </button>
+    </ion-item>
+   
+  </ion-card> -->
+
+  <!-- <ion-card>
+  
+    <ion-item (click)="sync()">
+      <ion-label>Sync</ion-label>
+      <button ion-button outline item-end icon-start>
+        <ion-icon name="download"></ion-icon>
+        Sync Online
+      </button>
+    </ion-item>
+   
+  </ion-card> -->
+
+  <ion-card>
+  
+    <ion-item (click)="syncOffline()">
+      <ion-label>Sync</ion-label>
+      <button ion-button outline item-end icon-start>
+        <ion-icon name="download"></ion-icon>
+        Sync Offline Data 
+      </button>
+    </ion-item>
+   
+  </ion-card>
+
+  <ion-card>
+  
+    <ion-item (click)="offLineData()">
+      <ion-label>Offline Data</ion-label>
+      <button ion-button outline item-end icon-start>
+        <ion-icon name="download"></ion-icon>
+        Download Offline Data
+      </button>
+    </ion-item>
+   
+  </ion-card>
+
+  
+  </ion-content>

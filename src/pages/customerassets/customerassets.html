@@ -1,0 +1,77 @@
+<!--
+  Generated template for the CustomerassetsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title> Assets</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+  <ion-content padding >
+    <p margin style="color:black">Select Site</p>
+    <ion-item >
+   
+        <ion-select>
+          <ion-option  *ngFor="let item of name;let i=index"  value={{item.Site}} [selected]="selected == item.Site" (ionSelect)="onChange(item.SiteId)">{{item.Site}}</ion-option>
+        </ion-select>
+
+       
+      </ion-item>
+      <p margin style="color:black">Select Fleet</p>
+    <ion-item>
+   
+        <ion-select multiple="true" [(ngModel)]="fleetselect">
+          <ion-option  *ngFor="let item of fleet;let i=index"  value={{item.FleetId}} >{{item.Fleet}}</ion-option>
+        </ion-select>
+
+       
+      </ion-item>
+      <p margin style="color:black">Select Status</p>
+      <ion-item >
+     
+          <ion-select [(ngModel)]="Statusselect">
+            <ion-option value="UP">UP</ion-option>
+            <ion-option value="DOWN">Down</ion-option>
+          </ion-select>
+  
+         
+        </ion-item>
+        <div text-center>
+          <button ion-button color="secondary" round (click)="submit()">Submit</button>
+        </div>
+      <ion-row style="background-color:#f6882d;padding:2px;margin-bottom: 1%">
+        <ion-col col-6>
+          <p style="color:white !important">Equipment Name</p>
+          
+        </ion-col>
+        <ion-col col-6 text-right >
+          <div >
+              <!-- <>Status </p>  -->
+              <p style="color:white !important">Status</p>
+          </div>
+          
+          </ion-col>
+      </ion-row>
+ 
+      <ion-list style="margin-top:0%">
+        <ion-item style="margin-bottom:1%" *ngFor="let item of sub" (click)="onset(item.EqpPlanId)">
+          
+          <h2  *ngIf="item.EqpPlan"> {{item.EqpPlan}}</h2>
+        
+            
+            <button *ngIf="item.equipment_status=='DOWN'" ion-button clear item-end ><ion-badge color="danger">{{item.equipment_status}}</ion-badge></button>
+            <button ion-button clear item-end *ngIf="item.equipment_status=='UP'"><ion-badge color="secondary">{{item.equipment_status}}</ion-badge></button>
+            <button ion-button clear item-end *ngIf="item.equipment_status=='NA'"><ion-badge color="dark">{{item.equipment_status}}</ion-badge></button>
+          </ion-item>
+    
+       
+      </ion-list>
+     
+</ion-content>
